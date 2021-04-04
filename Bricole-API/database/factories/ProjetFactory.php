@@ -2,9 +2,11 @@
 
 namespace Database\Factories;
 
+use App\Models\Categorie;
+use App\Models\Client;
 use App\Models\Projet;
 use Illuminate\Database\Eloquent\Factories\Factory;
-
+use Illuminate\Support\Str;
 class ProjetFactory extends Factory
 {
     /**
@@ -22,7 +24,15 @@ class ProjetFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'titre' => Str::random(50),
+             
+            'description' =>Str::random(200),
+            'budget' => '100',
+            'statut' => 'suspend',
+            'dateDebut' =>now(),
+            'dateFin' =>now(),
+            'client_id' => Client::all()->random()->id,
+            'categorie_id' => Categorie::all()->random()->id,
         ];
     }
 }

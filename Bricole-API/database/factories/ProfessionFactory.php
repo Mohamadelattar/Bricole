@@ -4,7 +4,7 @@ namespace Database\Factories;
 
 use App\Models\Profession;
 use Illuminate\Database\Eloquent\Factories\Factory;
-
+use Illuminate\Support\Str;
 class ProfessionFactory extends Factory
 {
     /**
@@ -22,7 +22,7 @@ class ProfessionFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'nom' => $this->faker->randomElement(["A","B","C","D","E"]),
         ];
     }
 }

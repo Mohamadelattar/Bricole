@@ -8,4 +8,13 @@ use Illuminate\Database\Eloquent\Model;
 class Gallery extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        'photo',
+        'portfolio_id',
+    ];
+    public function portfolio()
+    {
+        return $this->belongsTo(Portfolio::class,'foreign_key');
+    }
 }

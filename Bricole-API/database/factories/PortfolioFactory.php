@@ -2,9 +2,10 @@
 
 namespace Database\Factories;
 
+use App\Models\Freelancer;
 use App\Models\Portfolio;
 use Illuminate\Database\Eloquent\Factories\Factory;
-
+use Illuminate\Support\Str;
 class PortfolioFactory extends Factory
 {
     /**
@@ -22,7 +23,10 @@ class PortfolioFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'titre' => Str::random(50),
+            'photo' => $this->faker->image('public/storage',640,480, null, false),
+            'description' =>Str::random(200),
+            'freelancer_id' => Freelancer::all()->random()->id,
         ];
     }
 }

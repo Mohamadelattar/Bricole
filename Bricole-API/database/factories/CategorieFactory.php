@@ -22,7 +22,7 @@ class CategorieFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'nom' => $this->faker->name,
         ];
     }
 }
