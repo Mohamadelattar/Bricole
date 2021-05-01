@@ -1,0 +1,211 @@
+ <!-- Wrapper -->
+ <div id="wrapper">
+	<app-header-login></app-header-login>
+<div class="dashboard-container">
+    <div class="dashboard-sidebar">
+        <app-sidebar></app-sidebar>
+    </div>
+    <div class="dashboard-content-container" >
+<!-- Dashboard Content ================================================== -->
+	 
+		<div class="dashboard-content-inner" >
+			
+			<!-- Dashboard Headline -->
+			<div class="dashboard-headline">
+				<h3>Nouveau Projet</h3>
+
+				<!-- Breadcrumbs -->
+				<nav id="breadcrumbs" class="dark">
+					<ul>
+						
+						<li>Dashboard</li>
+						<li>Nouveau Projet</li>
+					</ul>
+				</nav>
+			</div>
+				<div class="row">
+					<div *ngIf="validate" class="alert alert-success">
+					  
+						Le projet est ajouté avec success		   
+								   
+				</div>
+				</div>
+			<!-- Row -->
+			<div class="row">
+				<form method="post" [formGroup]="projetForm" (ngSubmit)="projet()"  id="projet-form">
+				<!-- Dashboard Box -->
+				<div class="col-xl-12"  >
+					<div class="dashboard-box margin-top-0">
+
+						<!-- Headline -->
+						<div class="headline">
+							<h3><i class="icon-feather-folder-plus"></i>Nouveau Projet</h3>
+						</div>
+						
+						<div class="content with-padding padding-bottom-10">
+							<div class="row">
+
+								<div class="col-xl-9">
+									<div class="submit-field">
+										<h5>Titre du projet</h5>
+										<input type="text" formControlName="titre" name="titre" class="with-border">
+									</div>
+									<div *ngIf="projetForm.get('titre').invalid && (projetForm.get('titre').dirty || projetForm.get('titre').touched)"
+									class="alert alert-danger">
+					  
+								  <div *ngIf="projetForm.get('titre').errors.required">
+									Titre est obligatoire
+								  </div>
+								  <div *ngIf="projetForm.get('titre').errors.minlength">
+									Le titre doit comporter au moins 10 caractères.
+								  </div>
+								   
+								</div>
+									 
+								</div>
+
+								 
+
+								<div class="col-xl-4">
+									<div class="submit-field">
+										<h5>Categorie de projet</h5>
+										<select class=" with-border" data-size="7" formControlName="categorie_id" title="Select Category">
+												<option *ngFor="let categorie of categories"
+												         [value]="categorie.id">
+														 {{categorie.nom}}
+												</option>
+										</select>
+										<div *ngIf="projetForm.get('categorie_id').invalid && (projetForm.get('categorie_id').dirty || projetForm.get('categorie_id').touched)"
+									class="alert alert-danger">
+					  
+								  <div *ngIf="projetForm.get('categorie_id').errors.required">
+									Catégorie est obligatoire
+								  </div>
+								  
+	
+								</div>
+									</div>
+								</div>
+								<!--
+								<div class="col-xl-4">
+									<div class="submit-field">
+										<h5>Localisation</h5>
+										<div class="input-with-icon">
+											<div id="autocomplete-container">
+												<input id="autocomplete-input" class="with-border" formControlName="localisation" name="localisation" type="text" placeholder="Type Address">
+											</div>
+											<i class="icon-material-outline-location-on"></i>
+										</div>
+									</div>
+								</div>
+								 -->
+
+								<div class="col-xl-4">
+									<div class="submit-field">
+										<h5>Budget</h5>
+										<div class="row">
+											<div class="col-xl-6">
+												<div class="input-with-icon">
+													<input class="with-border" formControlName="budget" name="budget" type="text" placeholder="Min">
+													<i class="currency">DH</i>
+												</div>
+												<div *ngIf="projetForm.get('budget').invalid && (projetForm.get('budget').dirty || projetForm.get('budget').touched)"
+									class="alert alert-danger">
+					  
+								  <div *ngIf="projetForm.get('budget').errors.required">
+									Categorie de projet est obligatoire
+								  </div>
+								  
+	
+								</div>
+											</div>
+											
+											<!-- 
+											<div class="col-xl-6">
+												<div class="input-with-icon">
+													<input class="with-border" formControlName="maxBudget" name="maxBudget" type="text" placeholder="Max">
+													<i class="currency">DH</i>
+												</div>
+											</div>
+											-->
+										</div>
+									</div>
+								</div>
+
+								 
+
+								<div class="col-xl-12">
+									<div class="submit-field">
+										<h5>Description</h5>
+										<textarea cols="30" rows="5" class="with-border" formControlName="description"></textarea>
+										<div *ngIf="projetForm.get('description').invalid && (projetForm.get('description').dirty || projetForm.get('description').touched)"
+									class="alert alert-danger">
+					  
+								  <div *ngIf="projetForm.get('description').errors.required">
+									Description est obligatoire
+								  </div>
+								  <div *ngIf="projetForm.get('description').errors.minlength">
+									La description doit comporter au moins 100 caractères.
+								  </div>
+								  </div>
+										<div class="uploadButton margin-top-30">
+											<input class="uploadButton-input" type="file" accept="image/*, application/pdf" id="upload" multiple/>
+											<label class="uploadButton-button ripple-effect" for="upload">Télécharger des fichiers</label>
+											<span class="uploadButton-file-name">Images ou documents qui pourraient être utiles pour décrire votre projet</span>
+										</div>
+									</div>
+								</div>
+
+							</div>
+						</div>
+					
+					</div>
+				</div>
+			
+				<div class="col-xl-12">
+					<button   class="button ripple-effect big margin-top-30" type="submit" form="projet-form" >
+						<i class="icon-feather-plus"></i> Submit
+					</button>
+				</div>
+			</form>
+
+			</div>
+			<!-- Row / End -->
+
+			<!-- Footer -->
+			<div class="dashboard-footer-spacer"></div>
+			<div class="small-footer margin-top-15">
+				<div class="small-footer-copyrights">
+					© 2021 <strong>Bricol</strong>. All Rights Reserved.
+				</div>
+				<ul class="footer-social-links">
+					<li>
+						<a href="#" title="Facebook" data-tippy-placement="top">
+							<i class="icon-brand-facebook-f"></i>
+						</a>
+					</li>
+					<li>
+						<a href="#" title="Twitter" data-tippy-placement="top">
+							<i class="icon-brand-twitter"></i>
+						</a>
+					</li>
+					<li>
+						<a href="#" title="Google Plus" data-tippy-placement="top">
+							<i class="icon-brand-google-plus-g"></i>
+						</a>
+					</li>
+					<li>
+						<a href="#" title="LinkedIn" data-tippy-placement="top">
+							<i class="icon-brand-linkedin-in"></i>
+						</a>
+					</li>
+				</ul>
+				<div class="clearfix"></div>
+			</div>
+			<!-- Footer / End -->
+
+		</div>
+	 </div>
+	<!-- Dashboard Content / End -->
+	</div>
+	</div>

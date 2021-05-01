@@ -7,7 +7,7 @@ $(document).ready(function(){
 	/*--------------------------------------------------*/
 	/*  Mobile Menu - mmenu.js
 	/*--------------------------------------------------*/
-	$(function() {
+	/*$(function() {
 		function mmenuInit() {
 			var wi = $(window).width();
 			if(wi <= '1099') {
@@ -44,6 +44,7 @@ $(document).ready(function(){
 
 
 	/*--------------------------------------------------*/
+	
 	/*  Sticky Header
 	/*--------------------------------------------------*/
 	function stickyHeader() {

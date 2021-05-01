@@ -1,0 +1,19 @@
+app-sidebar {
+    position: -webkit-sticky;
+    position: sticky;
+    
+  } 
+.icon-material-outline-gavel
+{
+    color: #36bd78;
+}
+
+.icon-material-outline-business-center
+{
+    color: #b81b7f;
+}
+
+.icon-material-outline-rate-review {
+    color: #efa80f;
+}
+
