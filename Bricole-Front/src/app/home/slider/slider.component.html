@@ -28,17 +28,20 @@
 
 					<!-- Search Field -->
 					<div class="intro-search-field with-autocomplete">
-						<label for="autocomplete-input" class="field-title ripple-effect">Where?</label>
+						<label for="autocomplete-input" class="field-title ripple-effect">Où?</label>
 						<div class="input-with-icon">
-							<input id="autocomplete-input" type="text" placeholder="Online Job">
+							<input id="autocomplete-input" type="text" placeholder="Choissez une ville" class="form-control"   
+							name="searchText" [(ngModel)]="searchText" autocomplete="off">
 							<i class="icon-material-outline-location-on"></i>
 						</div>
+					
 					</div>
 
 					<!-- Search Field -->
 					<div class="intro-search-field">
-						<label for ="intro-keywords" class="field-title ripple-effect">What job you want?</label>
-						<input id="intro-keywords" type="text" placeholder="Job Title or Keywords">
+						<label for ="intro-keywords" class="field-title ripple-effect">Quel est votre besoin ?</label>
+						<input id="intro-keywords" type="text" placeholder="Cherchez votre besoin" class="form-control"  
+						name="searchBesoin" [(ngModel)]="searchBesoin" autocomplete="off">
 					</div>
 
 					<!-- Button -->
@@ -48,6 +51,35 @@
 				</div>
 			</div>
 		</div>
+
+		<!-- Search Bar -->
+		 
+				 
+
+					<!-- Search Field -->
+					<div  class="intro-search-field with-autocomplete intro-banner-search-form1 " style="float: left;" >
+						 
+						<div class="input-with-icon" >
+							<tbody >
+								<tr *ngFor="let hero of heroes | filter:searchText">
+									<td (click)="RowSelected(hero.ville)">{{hero.ville}}</td>
+								</tr> 
+							  </tbody>
+						</div>
+ 
+					</div>
+
+					<!-- Search Field -->
+					<div class="intro-search-field intro-banner-search-form1" style="float: right;">
+						<div class="input-with-icon" >
+							<tbody>
+								<tr *ngFor="let categorie of categories | filter:searchBesoin">
+									<td (click)="RowSelected2(categorie.nom)">{{categorie.nom}}</td>
+								</tr> 
+							  </tbody>
+						</div>
+					</div>
+ 
 
 		<!-- Stats -->
 		<div class="row">

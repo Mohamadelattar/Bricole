@@ -21,7 +21,7 @@ class CreateProjetsTable extends Migration
             $table->string('statut');
             $table->date('dateDebut');
             $table->date('dateFin');
-            
+            //$table->string('photo');
 
             /* Lier Client avec Projet */
             $table->bigInteger('client_id')->unsigned();

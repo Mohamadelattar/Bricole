@@ -19,7 +19,7 @@ class ProjetResource extends JsonResource
             'titre'       => $this->titre,
             'description'    => $this->description,
             'budget'     => $this->budget,
-            'statut'     => "suspend",
+            'statut'     => "Not approuved",
             'dateDebut'  => $this->dateDebut,
             'dateFin'    => $this->dateFin,
             'client_id'  => $this->client_id,

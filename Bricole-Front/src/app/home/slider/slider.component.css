@@ -1,0 +1,9 @@
+.intro-banner-search-form1 {
+	display: flex;
+	width: 50%;
+	background-color: #fff;
+	 
+}
+
+.input-with-icon
+{cursor: -webkit-pointer; cursor: pointer;}

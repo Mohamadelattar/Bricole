@@ -17,6 +17,7 @@ class Projet extends Model
         'statut',
         'dateDebut',
         'dateFin',
+        'photo',
         'client_id',
         'categorie_id',
     ];

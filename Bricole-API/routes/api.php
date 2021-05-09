@@ -6,6 +6,7 @@ use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\FreelancerController;
 use App\Http\Controllers\ProjetController;
 use App\Http\Controllers\CategorieController;
+use App\Http\Controllers\GalleryProjetController;
 
 
 
@@ -20,9 +21,9 @@ use App\Http\Controllers\CategorieController;
 |
 */
 Route::group(['middleware' => 'auth:client'], function() {
-   
+
 });
- 
+
 
 Route::get(
     '/freelancers',
@@ -39,9 +40,35 @@ Route::get(
     [ProjetController::class, 'index']
 );
 
-Route::post('/projet', [ProjetController::class,'store']);
+Route::get(
+    '/projet/{id}',
+    [ProjetController::class, 'projet']
+);
+
+Route::get(
+    '/projets',
+    [ProjetController::class, 'projets']
+);
+
+Route::get('/projetsConfirme', [ProjetController::class,'projetsConfirmee']);
+
+Route::get('/projetsRefus', [ProjetController::class,'projetsRefus']);
+
+
+Route::get(
+    '/gallery/{id}',
+    [GalleryProjetController::class, 'gallery']
+);
+Route::post('/gallery', [GalleryProjetController::class,'store']);
+
 Route::post('/login',[AuthController::class,'login']);
 
+Route::post('/projet', [ProjetController::class,'store']);
+
+Route::get('/projet-edit/{id}',[ProjetController::class,'approuver']);
+
+Route::get('/projet-refus/{id}',[ProjetController::class,'refus']);
 
 
- 
+
+

@@ -6,5 +6,9 @@ use Illuminate\Http\Request;
 
 class GalleryController extends Controller
 {
-    //
+    public function store(Request $request)
+    {
+         
+         
+    }
 }
