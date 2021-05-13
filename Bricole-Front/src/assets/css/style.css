@@ -10938,6 +10938,11 @@ img.mfp-img {
 	background-color: #47bb67;
 }
 
+.account-type input.account-type-radio:active ~ label {
+	color: #fff;
+	background-color: #47bb67;
+}
+
 .account-type input.account-type-radio:empty ~ label:after,
 .account-type input.account-type-radio:empty ~ label:before {
 	position: absolute;

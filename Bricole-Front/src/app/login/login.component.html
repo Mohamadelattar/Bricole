@@ -22,9 +22,10 @@
 		</div>
 	</div>
 </div>
+<!-- Account Type -->
 
 
-<!-- Page Content
+		<!-- Page Content
 ================================================== -->
 <div class="container">
 	<div class="row">
@@ -36,9 +37,24 @@
 				<div class="welcome-text">
 					<h3>We're glad to see you again!</h3>
 					<span>Don't have an account? <a href="pages-register.html">Sign Up!</a></span>
+
 				</div>
+				 
+				<div class="account-type" [ngClass]="{'form' : !isForm}">
 					
+					<div>
+						<input type="radio" (click)="freelancer()" name="account-type-radio" id="freelancer-radio" class="account-type-radio"/>
+						<label for="freelancer-radio" class="ripple-effect-dark"><i class="icon-material-outline-account-circle"></i> Freelancer</label>
+					</div>
+				
+					<div>
+						<input type="radio" (click)="client()" name="account-type-radio" id="employer-radio" class="account-type-radio"/>
+						<label for="employer-radio" class="ripple-effect-dark"><i class="icon-material-outline-business-center"></i> Employer</label>
+					</div>
+				</div>
+				<div [ngClass]="{'form' : isForm}" >
 				<!-- Form -->
+				
 				<form method="post" [formGroup]="loginForm" (ngSubmit)="login()"  id="login-form">
 					<div class="input-with-icon-left">
 						<i class="icon-material-baseline-mail-outline"></i>
@@ -51,21 +67,23 @@
 					</div>
 					<a href="#" class="forgot-password">Forgot Password?</a>
 				</form>
-				
+				</div>
 				<!-- Button -->
-				<button class="button full-width button-sliding-icon ripple-effect margin-top-10" type="submit" form="login-form">Log In <i class="icon-material-outline-arrow-right-alt"></i></button>
-				
+				<button [ngClass]="{'form' : isForm}" class="button full-width button-sliding-icon ripple-effect margin-top-10" type="submit" form="login-form">Log In <i class="icon-material-outline-arrow-right-alt"></i></button>				
 				<!-- Social Login -->
-				<div class="social-login-separator"><span>or</span></div>
-				<div class="social-login-buttons">
+				<div [ngClass]="{'form' : isForm}" class="social-login-separator"><span>or</span></div>
+				<div  [ngClass]="{'form' : isForm}" class="social-login-buttons">
 					<button class="facebook-login ripple-effect"><i class="icon-brand-facebook-f"></i> Log In via Facebook</button>
 					<button class="google-login ripple-effect"><i class="icon-brand-google-plus-g"></i> Log In via Google+</button>
 				</div>
 			</div>
+			 
 
 		</div>
 	</div>
-</div>
+</div>			
+
+
 
 
 <!-- Spacer -->
