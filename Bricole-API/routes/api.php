@@ -5,9 +5,10 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\FreelancerController;
 use App\Http\Controllers\ProjetController;
+use App\Http\Controllers\PortfolioController;
 use App\Http\Controllers\CategorieController;
 use App\Http\Controllers\GalleryProjetController;
-
+use App\Http\Controllers\GalleryPortfolioController;
 
 
 /*
@@ -61,7 +62,13 @@ Route::get(
 );
 Route::post('/gallery', [GalleryProjetController::class,'store']);
 
+Route::post('/galleryPortfolio', [GalleryPortfolioController::class,'storeGallery']);
+
 Route::post('/login',[AuthController::class,'login']);
+
+Route::post('/freelancer/login',[AuthController::class,'loginFreelancer']);
+
+Route::post('/portfolio', [PortfolioController::class,'store']);
 
 Route::post('/projet', [ProjetController::class,'store']);
 

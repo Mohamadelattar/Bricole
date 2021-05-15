@@ -24,7 +24,6 @@ class PortfolioFactory extends Factory
     {
         return [
             'titre' => Str::random(50),
-            'photo' => $this->faker->image('public/storage',640,480, null, false),
             'description' =>Str::random(200),
             'freelancer_id' => Freelancer::all()->random()->id,
         ];

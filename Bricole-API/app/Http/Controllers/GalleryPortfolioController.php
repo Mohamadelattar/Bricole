@@ -2,20 +2,17 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\File;
-use App\Models\GalleryProjet;
+use App\Models\GalleryPortfolio;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
-use App\Models\Projet;
 use Illuminate\Support\Facades\DB;
 
- 
-
-class GalleryProjetController extends Controller
+class GalleryPortfolioController extends Controller
 {
-    public function store(Request $request)
+    //
+    public function storeGallery(Request $request)
 
-    {   $id = DB::table('projets')->latest('id')->first()->{'id'};
+    {   $id = DB::table('portfolios')->latest('id')->first()->{'id'};
 
         
 
@@ -30,23 +27,18 @@ class GalleryProjetController extends Controller
             
             
             $file->storeAs($picture,"","google");
-            $galleryProjet = new GalleryProjet();
+            $galleryPortfolio = new GalleryPortfolio();
+           
+           
             $name = Storage::disk("google")->url($picture);
-            $galleryProjet->filename =  $name;
-            $galleryProjet->projet_id= $id;
-            $galleryProjet->save();
+            $galleryPortfolio->filename =  $name;
+            $galleryPortfolio->portfolio_id= $id;
+            $galleryPortfolio->save();
             return response()->json(["message" => "Image Uploaded Succesfully"]);
       } 
       else
       {
             return response()->json(["message" => "Select image first."]);
       }
-    }
-
-    public function gallery(int $id)
-    {
-        $galleries =  DB::table('gallery_projets')->where('projet_id', $id)->get('filename');
-        return response()->json($galleries);
-
     }
 }

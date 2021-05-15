@@ -2,9 +2,19 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Portfolio;
 use Illuminate\Http\Request;
+use App\Http\Resources\PortfolioResource;
 
 class PortfolioController extends Controller
 {
-    //
+    public function store(Request $request)
+    {
+
+        $projet = Portfolio::create($request->all());
+
+        return (new PortfolioResource($projet))
+                ->response()
+                ->setStatusCode(201);
+    }
 }

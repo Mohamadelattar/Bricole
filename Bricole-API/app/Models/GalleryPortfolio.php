@@ -5,12 +5,11 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Gallery extends Model
+class GalleryPortfolio extends Model
 {
     use HasFactory;
-
     protected $fillable = [
-        'photo',
+        'filename',
         'portfolio_id',
     ];
     public function portfolio()

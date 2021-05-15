@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\ValidationException;
 use App\Http\Resources\AuthResource;
+use App\Models\Freelancer;
 
 class AuthController extends Controller
 {
@@ -25,6 +26,22 @@ class AuthController extends Controller
 
     $client= new AuthResource($client);
     return response()->json([$client->createToken('auth')->plainTextToken,$client]);
+
+}
+
+public function loginFreelancer(Request $request){
+    $credentials = $request->all();
+
+    $freelancer = Freelancer::where('email', $request->email)->first();
+
+    //session(['client' => $client]);
+    if(!$freelancer || !Hash::check($request->password, $freelancer->password)){
+    
+    return response()->json('Invalid credentials');
+    }
+
+    $freelancer= new AuthResource($freelancer);
+    return response()->json([$freelancer->createToken('auth')->plainTextToken,$freelancer]);
 
 }
 }

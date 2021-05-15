@@ -50,6 +50,11 @@ return [
         'client' => [
             'driver' => 'session',
             'provider' => 'clients',
+        ],
+
+        'freelancer' => [
+            'driver' => 'session',
+            'provider' => 'freelancers',
         ]
     ],
 
@@ -79,6 +84,11 @@ return [
         'clients' => [
             'driver' => 'eloquent',
             'model' => App\Models\Client::class,
+        ],
+
+        'freelancers' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\Freelancer::class,
         ],
 
         

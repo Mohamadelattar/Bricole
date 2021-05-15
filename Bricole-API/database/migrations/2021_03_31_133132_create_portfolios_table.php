@@ -16,7 +16,6 @@ class CreatePortfoliosTable extends Migration
         Schema::create('portfolios', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('titre',100);
-            $table->binary('photo');
             $table->longText('description');
             
             /* Liaison de freelancer et portfolio */

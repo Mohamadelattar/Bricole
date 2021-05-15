@@ -27,12 +27,14 @@ class DatabaseSeeder extends Seeder
 
          \App\Models\Projet::factory(10)->create();
 
+         //
+         
          \App\Models\Portfolio::factory(10)->create();
 
-         \App\Models\Message::factory(10)->create();
+        // \App\Models\Message::factory(10)->create();
          
          //\App\Models\Feedback::factory(5)->create();
 
-         \App\Models\Gallery::factory(5)->create();
+        // \App\Models\Gallery::factory(5)->create();
     }
 }

@@ -19,7 +19,6 @@
             "polyfills": "src/polyfills.ts",
             "outputHashing": "media",
             "tsConfig": "tsconfig.app.json",
-            "aot": true,
             "assets": [
               "src/favicon.ico",
               "src/assets"
@@ -46,7 +45,13 @@
               "src/assets/js/slick.min.js",
               "src/assets/js/custom.js",
               "src/assets/js/chart.min.js"
-            ]
+            ],
+            "vendorChunk": true,
+            "extractLicenses": false,
+            "buildOptimizer": false,
+            "sourceMap": true,
+            "optimization": false,
+            "namedChunks": true
           },
           "configurations": {
             "production": {
@@ -59,7 +64,6 @@
               "optimization": true,
               "outputHashing": "all",
               "sourceMap": false,
-              "extractCss": true,
               "namedChunks": false,
               "extractLicenses": true,
               "vendorChunk": false,
@@ -87,16 +91,14 @@
               "optimization": true,
               "outputHashing": "all",
               "sourceMap": false,
-              "extractCss": true,
               "namedChunks": false,
               "extractLicenses": true,
               "vendorChunk": false,
               "buildOptimizer": true,
-              "outputPath": "dist/bricole/ar",
-              "i18nFile" : "src/translate/messages.ar.xlf",
-              "i18nFormat" : "xlf",
-              "i18nLocale" : "ar",
-              "baseHref": "/ar/"
+              "outputPath": "dist/bricole",
+              "localize": [
+                "ar"
+              ]
             }
           }
         },
@@ -161,6 +163,11 @@
               "devServerTarget": "Bricole-Front:serve:production"
             }
           }
+        }
+      },
+      "i18n": {
+        "locales": {
+          "ar": "src/translate/messages.ar.xlf"
         }
       }
     }
