@@ -1,0 +1,149 @@
+ <!-- Wrapper -->
+ <div id="wrapper">
+	<app-header-login></app-header-login>
+<div class="dashboard-container">
+    <div class="dashboard-sidebar">
+        <app-sidebar-freelancer></app-sidebar-freelancer>
+    </div>
+    <div class="dashboard-content-container" >
+<!-- Dashboard Content ================================================== -->
+	 
+		<div class="dashboard-content-inner" >
+			
+			<!-- Dashboard Headline -->
+			<div class="dashboard-headline">
+				<h3>Nouveau Portfolio</h3>
+
+				<!-- Breadcrumbs -->
+				<nav id="breadcrumbs" class="dark">
+					<ul>
+						
+						<li>Dashboard</li>
+						<li>Nouveau Portfolio</li>
+					</ul>
+				</nav>
+			</div>
+				<div class="row">
+					<div *ngIf="validate" class="alert alert-success">
+					  
+						Le portfolio est ajouté avec success		   
+								   
+				</div>
+				</div>
+			<!-- Row -->
+			<div class="row">
+				<form method="post" [formGroup]="portfolioForm" (ngSubmit)="portfolio()"  id="portfolio-form">
+				<!-- Dashboard Box -->
+				<div class="col-xl-12"  >
+					<div class="dashboard-box margin-top-0">
+
+						<!-- Headline -->
+						<div class="headline">
+							<h3><i class="icon-feather-folder-plus"></i>Nouveau Portfolio</h3>
+						</div>
+						
+						<div class="content with-padding padding-bottom-10">
+							<div class="row">
+
+								<div class="col-xl-9">
+									<div class="submit-field">
+										<h5>Titre du portfolio</h5>
+										<input type="text" formControlName="titre" name="titre" class="with-border">
+									</div>
+									<div *ngIf="portfolioForm.get('titre').invalid && (portfolioForm.get('titre').dirty || portfolioForm.get('titre').touched)"
+									class="alert alert-danger">
+					  
+								  <div *ngIf="portfolioForm.get('titre').errors.required">
+									Titre est obligatoire
+								  </div>
+								  <div *ngIf="portfolioForm.get('titre').errors.minlength">
+									Le titre doit comporter au moins 10 caractères.
+								  </div>
+								   
+								</div>
+									 
+								</div>
+								<!--
+								<div class="col-xl-4">
+									<div class="submit-field">
+										<h5>Localisation</h5>
+										<div class="input-with-icon">
+											<div id="autocomplete-container">
+												<input id="autocomplete-input" class="with-border" formControlName="localisation" name="localisation" type="text" placeholder="Type Address">
+											</div>
+											<i class="icon-material-outline-location-on"></i>
+										</div>
+									</div>
+								</div>
+								 -->
+								<div class="col-xl-12">
+									<div class="submit-field">
+										<h5>Description</h5>
+										<textarea cols="30" rows="5" class="with-border" formControlName="description"></textarea>
+										<div *ngIf="portfolioForm.get('description').invalid && (portfolioForm.get('description').dirty || portfolioForm.get('description').touched)"
+									class="alert alert-danger">
+					  
+								  <div *ngIf="portfolioForm.get('description').errors.required">
+									Description est obligatoire
+								  </div>
+								  <div *ngIf="portfolioForm.get('description').errors.minlength">
+									La description doit comporter au moins 100 caractères.
+								  </div>
+								  </div>
+										 
+									</div>
+								</div>
+
+							</div>
+						</div>
+					
+					</div>
+				</div>
+			
+				<div class="col-xl-12">
+					<button   class="button ripple-effect big margin-top-30" type="submit" form="portfolio-form" >
+						<i class="icon-feather-plus"></i> Submit
+					</button>
+				</div>
+			</form>
+
+			</div>
+			<!-- Row / End -->
+
+			<!-- Footer -->
+			<div class="dashboard-footer-spacer"></div>
+			<div class="small-footer margin-top-15">
+				<div class="small-footer-copyrights">
+					© 2021 <strong>Bricol</strong>. All Rights Reserved.
+				</div>
+				<ul class="footer-social-links">
+					<li>
+						<a href="#" title="Facebook" data-tippy-placement="top">
+							<i class="icon-brand-facebook-f"></i>
+						</a>
+					</li>
+					<li>
+						<a href="#" title="Twitter" data-tippy-placement="top">
+							<i class="icon-brand-twitter"></i>
+						</a>
+					</li>
+					<li>
+						<a href="#" title="Google Plus" data-tippy-placement="top">
+							<i class="icon-brand-google-plus-g"></i>
+						</a>
+					</li>
+					<li>
+						<a href="#" title="LinkedIn" data-tippy-placement="top">
+							<i class="icon-brand-linkedin-in"></i>
+						</a>
+					</li>
+				</ul>
+				<div class="clearfix"></div>
+			</div>
+			<!-- Footer / End -->
+
+		</div>
+	 </div>
+	<!-- Dashboard Content / End -->
+	</div>
+	</div>

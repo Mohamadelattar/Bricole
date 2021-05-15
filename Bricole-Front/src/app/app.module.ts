@@ -40,6 +40,8 @@ import { SidebarAdminComponent } from './admin/sidebar-admin/sidebar-admin.compo
 import { ProjetsComponent } from './admin/projets/projets.component';
 import { ProjetsConfirmeComponent } from './admin/projets-confirme/projets-confirme.component';
 import { ProjetRefusComponent } from './admin/projet-refus/projet-refus.component';
+import { PostPortfolioComponent } from './freelancer/portfolio-freelancer/post-portfolio/post-portfolio.component';
+import { PostPortfolioTwoComponent } from './freelancer/portfolio-freelancer/post-portfolio-two/post-portfolio-two.component';
 
 const appRoutes: Routes = [
    
@@ -52,6 +54,8 @@ const appRoutes: Routes = [
   { path: 'freelancer-dash', component: DashbordFreelancerComponent},
   { path: 'freelancer-message', component: MessageFreelancerComponent},
   { path: 'portfolio-freelancer', component: PortfolioFreelancerComponent},
+  { path: 'portfolio-post', component: PostPortfolioComponent},
+  { path: 'portfolio-post-two', component: PostPortfolioTwoComponent },
   { path: 'porfil-freelancer', component: ProfilFreelancerComponent},
   { path: 'projets', component: ProjetsComponent},
   { path: 'projets-confirme', component: ProjetsConfirmeComponent},
@@ -98,7 +102,9 @@ const appRoutes: Routes = [
     SidebarAdminComponent,
     ProjetsComponent,
     ProjetsConfirmeComponent,
-    ProjetRefusComponent
+    ProjetRefusComponent,
+    PostPortfolioComponent,
+    PostPortfolioTwoComponent
   ],
   imports: [
     BrowserModule,
