@@ -14513,10 +14513,7 @@ ul.dashboard-box-list > li:hover {
 	font-size: 15px;
 }
 
-.message-by-headline h5,
-.message-by-headline span {
-	display: inline-block;
-}
+ 
 
 .message-by-headline span {
 	float: right;
@@ -14574,7 +14571,7 @@ ul.dashboard-box-list > li:hover {
 }
 
 .messages-container-inner .messages-inbox {
-	max-width: 340px;
+	 
 	border-right: 1px solid #eaeaea;
 }
 
@@ -14789,7 +14786,7 @@ ul.dashboard-box-list > li:hover {
 
 /* Messages Media Queries */
 @media (max-width: 992px) {
-	.messages-container-inner .messages-inbox { max-width: 300px; }
+	.messages-container-inner .messages-inbox {   }
 }
 @media (max-width: 768px) {
 	.messages-container-inner { display: block; }

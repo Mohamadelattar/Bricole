@@ -1,7 +1,7 @@
 
 <!-- Header Container
 ================================================== -->
-<header id="header-container" class="fullwidth dashboard-header not-sticky">
+<header id="header-container" class="fullwidth dashboard-header not-sticky" >
 
 <!-- Header -->
 <div id="header">
@@ -20,15 +20,15 @@
 	<nav id="navigation">
 		<ul id="responsive">
 
-			<li><a href="#" class="current"  i18n>Home</a></li>
+			<li><a href="#" class="current"  >{{'Home' | translate}}</a></li>
 
-			<li><a routerLink="/client-dash"  i18n>Find Work</a></li>
+			<li><a routerLink="/client-dash" > {{'Find work' | translate }}</a></li>
 
-			<li><a href="#"  i18n>For Employers</a></li>
+			<li><a href="#"  >{{'For Employers' | translate }}</a></li>
 
-			<li><a href="#"  i18n>Dashboard</a></li>
+			<li><a href="#"  >{{'Browse projects' | translate }}</a></li>
 
-			<li><a href="#"  i18n>Pages</a></li>
+			<li><a href="#"  >{{'Browse Freelancers' | translate }}</a></li>
 
 		</ul>
 	</nav>
@@ -45,9 +45,24 @@
  
 <!-- Right Side Content / End Without Connection -->
 <div class="right-side" >
-
 	<div class="header-widget">
-		<a [routerLink]="'/login' " class="popup-with-zoom-anim log-in-button"><i class="icon-feather-log-in"></i> <span  i18n>Log In / Register</span></a>
+		<span class="form-inline">
+			<select 
+				class="form-control" 
+				#selectedLang 
+				(change)="switchLang(selectedLang.value)">
+			  <option *ngFor="let language of translate.getLangs()" 
+				[value]="language"
+				[selected]="language === translate.currentLang">
+				{{ language }}
+			  </option>
+			</select>
+		  </span>
+	
+	</div>
+	
+	<div class="header-widget">
+		<a [routerLink]="'/login' " class="popup-with-zoom-anim log-in-button"><i class="icon-feather-log-in"></i> <span>{{'Log In / Register' | translate }}</span></a>
 	</div>
  
 

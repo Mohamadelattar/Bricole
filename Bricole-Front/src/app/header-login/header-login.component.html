@@ -44,7 +44,21 @@
     
     <!-- Right Side Content / End  With Connection-->
     <div class="right-side"  >
-    
+        <div class="header-widget">
+            <span class="form-inline">
+                <select 
+                    class="form-control" 
+                    #selectedLang 
+                    (change)="switchLang(selectedLang.value)">
+                  <option *ngFor="let language of translate.getLangs()" 
+                    [value]="language"
+                    [selected]="language === translate.currentLang">
+                    {{ language }}
+                  </option>
+                </select>
+              </span>
+        
+        </div>
         <!--  User Notifications -->
         <div class="header-widget hide-on-mobile">
             

@@ -9,7 +9,9 @@ use App\Http\Controllers\PortfolioController;
 use App\Http\Controllers\CategorieController;
 use App\Http\Controllers\GalleryProjetController;
 use App\Http\Controllers\GalleryPortfolioController;
-
+use App\Http\Controllers\CommentaireController;
+use App\Http\Controllers\ClientController;
+use App\Http\Controllers\MessageController;
 
 /*
 |--------------------------------------------------------------------------
@@ -47,6 +49,22 @@ Route::get(
 );
 
 Route::get(
+    '/freelancer/{id}',
+    [FreelancerController::class, 'freelancer']
+);
+
+Route::get(
+    '/client/{id}',
+    [ClientController::class, 'client']
+);
+
+Route::post(
+    '/editClient',
+    [ClientController::class, 'editClient']
+);
+
+
+Route::get(
     '/projets',
     [ProjetController::class, 'projets']
 );
@@ -72,10 +90,18 @@ Route::post('/portfolio', [PortfolioController::class,'store']);
 
 Route::post('/projet', [ProjetController::class,'store']);
 
+Route::post('/commentaire', [CommentaireController::class,'store']);
+ 
+Route::get('/commentaires/{id}', [CommentaireController::class,'commentaires']);
+
 Route::get('/projet-edit/{id}',[ProjetController::class,'approuver']);
 
 Route::get('/projet-refus/{id}',[ProjetController::class,'refus']);
 
+Route::post('/messagesUsers',[MessageController::class,'getUsersMessages']);
 
+Route::post('/messagesFirst',[MessageController::class,'getMessagesFirst']);
 
+Route::get('/conversation/{idClient}/{idFreelancer}',[MessageController::class,'getClientConversation']);
 
+Route::post('/saveMessage', [MessageController::class,'store']);

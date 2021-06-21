@@ -1,22 +1,23 @@
  <!-- Wrapper -->
  <div id="wrapper">
-	<app-header></app-header>
+	<app-header *ngIf="!auth"></app-header>
+	<app-header-login *ngIf="auth"></app-header-login>
     <!-- Titlebar
 ================================================== -->
-<div class="single-page-header" data-background-image="images/single-task.jpg">
+<div class="single-page-header" data-background-image="../../assets/images/single-task.jpg">
 	<div class="container">
 		<div class="row">
 			<div class="col-md-12">
 				<div class="single-page-header-inner">
 					<div class="left-side">
-						<div class="header-image"><a href="single-company-profile.html"><img src="images/browse-companies-02.png" alt=""></a></div>
+						<div class="header-image"><a href="single-company-profile.html"><img src="../../assets/images/browse-companies-02.png" alt=""></a></div>
 						<div class="header-details">
 							<h3>{{projet.titre}}</h3>
 							<h5>nom de le client</h5>
 							<ul>
 								<li><a href="single-company-profile.html"><i class="icon-material-outline-business"></i> Acue</a></li>
 								<li><div class="star-rating" data-rating="5.0"></div></li>
-								<li><img class="flag" src="images/flags/de.svg" alt=""> Maroc</li>
+								<li><img class="flag" src="../../assets/images/flags/de.svg" alt=""> Maroc</li>
 								<li><div class="verified-badge-with-title">Verified</div></li>
 							</ul>
 						</div>
@@ -67,20 +68,45 @@
 				</div>
 			</div>
 			<div class="clearfix"></div>
+
+			<div *ngIf=afficherPostuler class="bidding-widget">
+				<div class="bidding-headline"><h3>Bid on this job!</h3></div>
+				<div class="bidding-inner">
+					<form method="POST" [formGroup]="postulerForm" (ngSubmit)="postuler()">
+					<!-- Headline -->
+					<span class="bidding-detail">Set your <strong>minimal rate</strong></span>
+					<!-- Price Slider -->
+					<input type="text" class="commentaire" formControlName="commentaire" name="commentaire">
+
+					<!-- Fields -->
+					<div class="bidding-fields">			 
+					</div>
+					<!-- Button -->
+					<button id="snackbar-place-bid" type="submit" class="button ripple-effect move-on-hover full-width margin-top-30"><span>Place a Bid</span></button>
+				</form>
+				</div>
+				<div class="bidding-signup">Don't have an account? <a href="#sign-in-dialog" class="register-tab sign-in popup-with-zoom-anim">Sign Up</a></div>
+			</div>
+
+			<div *ngIf=!afficherPostuler class="bidding-widget">
+				<div class="bidding-inner">
+					 <h2 id="snackbar-place-bid">Vous avez déja postuler a cette offre</h2>
+				</div>
+			</div>
 			
 			<!-- Freelancers Bidding -->
 			<div class="boxed-list margin-bottom-60">
 				<div class="boxed-list-headline">
 					<h3><i class="icon-material-outline-group"></i> Freelancers Bidding</h3>
 				</div>
-				<ul class="boxed-list-ul">
+				<ul class="boxed-list-ul" *ngFor="let commentaire of commentaires ;  let i=index">
 					<li>
 						<div class="bid">
 							<!-- Avatar -->
 							<div class="bids-avatar">
 								<div class="freelancer-avatar">
 									<div class="verified-badge"></div>
-									<a href="single-freelancer-profile.html"><img src="images/user-avatar-big-01.jpg" alt=""></a>
+									<a href="single-freelancer-profile.html"><img src="../../assets/images/user-avatar-big-01.jpg" alt=""></a>
 								</div>
 							</div>
 							
@@ -88,7 +114,7 @@
 							<div class="bids-content">
 								<!-- Name -->
 								<div class="freelancer-name">
-									<h4><a href="single-freelancer-profile.html">Tom Smith <img class="flag" src="images/flags/gb.svg" alt="" title="United Kingdom" data-tippy-placement="top"></a></h4>
+									<h4><a [routerLink]="[ '/freelancer', freelnacers[i].id]">{{freelnacers[i].nom}}<img class="flag" src="../../assets/images/flags/gb.svg" alt="" title="United Kingdom" data-tippy-placement="top"></a></h4>
 									<div class="star-rating" data-rating="4.9"></div>
 								</div>
 							</div>
@@ -96,91 +122,7 @@
 							<!-- Bid -->
 							<div class="bids-bid">
 								<div class="bid-rate">
-									<div class="rate">$4,400</div>
-									<span>in 7 days</span>
-								</div>
-							</div>
-						</div>
-					</li>
-					<li>
-						<div class="bid">
-							<!-- Avatar -->
-							<div class="bids-avatar">
-								<div class="freelancer-avatar">
-									<div class="verified-badge"></div>
-									<a href="single-freelancer-profile.html"><img src="images/user-avatar-big-02.jpg" alt=""></a>
-								</div>
-							</div>
-							
-							<!-- Content -->
-							<div class="bids-content">
-								<!-- Name -->
-								<div class="freelancer-name">
-									<h4><a href="single-freelancer-profile.html">David Peterson <img class="flag" src="images/flags/de.svg" alt="" title="Germany" data-tippy-placement="top"></a></h4>
-									<div class="star-rating" data-rating="4.2"></div>
-								</div>
-							</div>
-							
-							<!-- Bid -->
-							<div class="bids-bid">
-								<div class="bid-rate">
-									<div class="rate">$2,200</div>
-									<span>in 14 days</span>
-								</div>
-							</div>
-						</div>
-					</li>
-					<li>
-						<div class="bid">
-							<!-- Avatar -->
-							<div class="bids-avatar">
-								<div class="freelancer-avatar">
-									<a href="single-freelancer-profile.html"><img src="images/user-avatar-placeholder.png" alt=""></a>
-								</div>
-							</div>
-							
-							<!-- Content -->
-							<div class="bids-content">
-								<!-- Name -->
-								<div class="freelancer-name">
-									<h4><a href="single-freelancer-profile.html">Marcin Kowalski <img class="flag" src="images/flags/pl.svg" alt="" title="Poland" data-tippy-placement="top"></a></h4>
-									<span class="not-rated">Minimum of 3 votes required</span>
-
-								</div>
-							</div>
-							
-							<!-- Bid -->
-							<div class="bids-bid">
-								<div class="bid-rate">
-									<div class="rate">$3,800</div>
-									<span>In 20 days</span>
-								</div>
-							</div>
-						</div>
-					</li>
-					<li>
-						<div class="bid">
-							<!-- Avatar -->
-							<div class="bids-avatar">
-								<div class="freelancer-avatar">
-									<a href="single-freelancer-profile.html"><img src="images/user-avatar-placeholder.png" alt=""></a>
-								</div>
-							</div>
-							
-							<!-- Content -->
-							<div class="bids-content">
-								<!-- Name -->
-								<div class="freelancer-name">
-									<h4><a href="single-freelancer-profile.html">Sebastiano Piccio <img class="flag" src="images/flags/it.svg" alt="" title="Italy" data-tippy-placement="top"></a></h4>
-									<div class="star-rating" data-rating="4.5"></div>
-								</div>
-							</div>
-							
-							<!-- Bid -->
-							<div class="bids-bid">
-								<div class="bid-rate">
-									<div class="rate">$3,400</div>
-									<span>In 10 days</span>
+									<div class="rate"> {{commentaire.commentaire}}</div>
 								</div>
 							</div>
 						</div>
@@ -197,46 +139,7 @@
 
 				<div class="countdown green margin-bottom-35">6 days, 23 hours left</div>
 
-				<div class="sidebar-widget">
-					<div class="bidding-widget">
-						<div class="bidding-headline"><h3>Bid on this job!</h3></div>
-						<div class="bidding-inner">
-
-							<!-- Headline -->
-							<span class="bidding-detail">Set your <strong>minimal rate</strong></span>
-
-							<!-- Price Slider -->
-							<div class="bidding-value">$<span id="biddingVal"></span></div>
-							<input class="bidding-slider" type="text" value="" data-slider-handle="custom" data-slider-currency="$" data-slider-min="0" data-slider-max="4500" data-slider-value="auto" data-slider-step="50" data-slider-tooltip="hide" />
-							
-							<!-- Headline -->
-							<span class="bidding-detail margin-top-30">Set your <strong>delivery time</strong></span>
-
-							<!-- Fields -->
-							<div class="bidding-fields">
-								<div class="bidding-field">
-									<!-- Quantity Buttons -->
-									<div class="qtyButtons">
-										<div class="qtyDec"></div>
-										<input type="text" name="qtyInput" value="1">
-										<div class="qtyInc"></div>
-									</div>
-								</div>
-								<div class="bidding-field">
-									<select class="selectpicker default">
-										<option selected>Days</option>
-										<option>Hours</option>
-									</select>
-								</div>
-							</div>
-
-							<!-- Button -->
-							<button id="snackbar-place-bid" class="button ripple-effect move-on-hover full-width margin-top-30"><span>Place a Bid</span></button>
-
-						</div>
-						<div class="bidding-signup">Don't have an account? <a href="#sign-in-dialog" class="register-tab sign-in popup-with-zoom-anim">Sign Up</a></div>
-					</div>
-				</div>
+				 
 
 				<!-- Sidebar Widget -->
 				<div class="sidebar-widget">

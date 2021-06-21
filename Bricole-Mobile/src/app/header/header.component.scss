@@ -1,0 +1,42 @@
+/* ---------------------------------- */
+/* Header
+------------------------------------- */
+ 
+ 
+#logo { 
+	display: inline-block;
+	border-right: 1px solid #e0e0e0;
+	height: 100%;
+	vertical-align: top;
+	padding-right: 35px;
+	margin-right: 20px;
+}
+
+#logo img {
+	height: 42px;
+	width: auto;
+	top: 50%;
+	position: relative;
+	transform: translate3d(0,-50%,0);
+}
+.header-notifications-trigger a:hover{
+	text-decoration: none;
+
+ }
+
+ .user-menu-small-nav a:hover{
+	text-decoration: none;
+ }
+ #mm-0 { display: none; }
+ @media (max-width: 500px) {
+
+	/* Header Responsive Styles */
+	#mm-0 { display: block; 
+			position: fixed;
+	}
+
+ }
+
+ .header-widget a:hover{
+	text-decoration: none;
+ }

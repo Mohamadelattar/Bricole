@@ -1,5 +1,6 @@
 import { LoginComponent } from './../login/login.component';
 import { Component, OnInit } from '@angular/core';
+import { TranslateService } from '@ngx-translate/core';
  
 export interface User {
   id: number;
@@ -22,20 +23,33 @@ export class HeaderLoginComponent implements OnInit {
   };
 
   name: string;
-  constructor() {
+  constructor(public translate: TranslateService) {
     this.user.id = Number(localStorage.getItem("id"));
-    console.log(Number(localStorage.getItem("id")));
     this.user.nom = localStorage.getItem("nom");
-    console.log(localStorage.getItem("nom"));
     this.user.prenom = localStorage.prenom;
-    console.log(localStorage.prenom);
     this.user.email  = localStorage.getItem("email");
-    console.log(localStorage.getItem("email"));
+    this.name = localStorage.getItem("nom") + localStorage.getItem("prenom");
+    translate.addLangs(['fr', 'ar']);
+    translate.setDefaultLang('fr');
+   }
+
+
+   connected(){
+    this.user.id = Number(localStorage.getItem("id"));
+    this.user.nom = localStorage.getItem("nom");
+    this.user.prenom = localStorage.prenom;
+    this.user.email  = localStorage.getItem("email");
     this.name = localStorage.getItem("nom") + localStorage.getItem("prenom");
    }
 
   ngOnInit(): void {
+    this.connected();
+  }
 
+  
+
+  switchLang(lang: string) {
+    this.translate.use(lang);
   }
 
  

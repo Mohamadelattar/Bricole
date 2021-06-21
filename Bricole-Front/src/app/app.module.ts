@@ -2,7 +2,9 @@ import { FooterComponent } from './home/footer/footer.component';
 import { CategoryComponent } from './home/category/category.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { HttpClientModule } from '@angular/common/http';
+import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
@@ -14,7 +16,6 @@ import { TopFreelancerComponent } from './home/top-freelancer/top-freelancer.com
 import { HomeComponent } from './home/home.component';
 import { SidebarComponent } from './client/sidebar/sidebar.component';
 import { DashboardComponent } from './client/dashboard/dashboard.component';
-import { ClientComponent } from './client/client.component';
 import { RouterModule, Routes } from '@angular/router';
 import { MessageClientComponent } from './client/message-client/message-client.component';
 import { ProjetComponent } from './client/projet/projet.component';
@@ -33,7 +34,6 @@ import { DashbordFreelancerComponent } from './freelancer/dashbord-freelancer/da
 import { MessageFreelancerComponent } from './freelancer/message-freelancer/message-freelancer.component';
 import { SidebarFreelancerComponent } from './freelancer/sidebar-freelancer/sidebar-freelancer.component';
 import { ProfilFreelancerComponent } from './freelancer/profil-freelancer/profil-freelancer.component';
-import { PortfolioFreelancerComponent } from './freelancer/portfolio-freelancer/portfolio-freelancer.component';
 import { DashboardAdminComponent } from './admin/dashboard-admin/dashboard-admin.component';
 import { MessageAdminComponent } from './admin/message-admin/message-admin.component';
 import { SidebarAdminComponent } from './admin/sidebar-admin/sidebar-admin.component';
@@ -42,18 +42,25 @@ import { ProjetsConfirmeComponent } from './admin/projets-confirme/projets-confi
 import { ProjetRefusComponent } from './admin/projet-refus/projet-refus.component';
 import { PostPortfolioComponent } from './freelancer/portfolio-freelancer/post-portfolio/post-portfolio.component';
 import { PostPortfolioTwoComponent } from './freelancer/portfolio-freelancer/post-portfolio-two/post-portfolio-two.component';
+import { FreelancerPageComponent } from './freelancer-page/freelancer-page.component';
+import { ClientPageComponent } from './client-page/client-page.component';
+import { MessagesComponent } from './client/messages/messages.component';
+import { MessagesFComponent } from './freelancer/messages-f/messages-f.component';
 
 const appRoutes: Routes = [
    
   { path: 'client-dash', component: DashboardComponent , canActivate:[AuthService]},
+  { path: 'client/:idClient', component: ClientPageComponent},
   { path: 'client-message', component: MessageClientComponent , canActivate:[AuthService]},
+  { path: 'conversation-client/:idFreelancer', component: MessagesComponent , canActivate:[AuthService]},
   { path: 'client-projet', component: ProjetComponent , canActivate:[AuthService] },
   { path: 'projet-post', component: PostProjetComponent , canActivate:[AuthService]},
   { path: 'profil-edit', component: ProfilEditComponent , canActivate:[AuthService]},
   { path: 'projet-post-two', component: PostProjetTwoComponent , canActivate:[AuthService]},
   { path: 'freelancer-dash', component: DashbordFreelancerComponent},
+  { path: 'freelancer/:idFreelancer', component: FreelancerPageComponent},
   { path: 'freelancer-message', component: MessageFreelancerComponent},
-  { path: 'portfolio-freelancer', component: PortfolioFreelancerComponent},
+  { path: 'conversation-freelancer/:idClient', component: MessagesFComponent},
   { path: 'portfolio-post', component: PostPortfolioComponent},
   { path: 'portfolio-post-two', component: PostPortfolioTwoComponent },
   { path: 'porfil-freelancer', component: ProfilFreelancerComponent},
@@ -64,11 +71,11 @@ const appRoutes: Routes = [
   { path: 'projet/:idProjet', component: PageProjetComponent},
   { path: '', component: HomeComponent},
   { path: 'login', component: LoginComponent},
-  { path: 'client', component: ClientComponent},
   
   
 
 ];
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -83,7 +90,6 @@ const appRoutes: Routes = [
     HomeComponent,
     SidebarComponent,
     DashboardComponent,
-    ClientComponent,
     MessageClientComponent,
     ProjetComponent,
     PostProjetComponent,
@@ -96,7 +102,6 @@ const appRoutes: Routes = [
     MessageFreelancerComponent,
     SidebarFreelancerComponent,
     ProfilFreelancerComponent,
-    PortfolioFreelancerComponent,
     DashboardAdminComponent,
     MessageAdminComponent,
     SidebarAdminComponent,
@@ -104,7 +109,11 @@ const appRoutes: Routes = [
     ProjetsConfirmeComponent,
     ProjetRefusComponent,
     PostPortfolioComponent,
-    PostPortfolioTwoComponent
+    PostPortfolioTwoComponent,
+    FreelancerPageComponent,
+    ClientPageComponent,
+    MessagesComponent,
+    MessagesFComponent
   ],
   imports: [
     BrowserModule,
@@ -113,9 +122,21 @@ const appRoutes: Routes = [
     FormsModule,
     HttpClientModule,
     NgbModule,
-    Ng2SearchPipeModule
+    Ng2SearchPipeModule,
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: httpTranslateLoader,
+        deps: [HttpClient]
+      }
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+
+// AOT compilation support
+export function httpTranslateLoader(http: HttpClient) {
+  return new TranslateHttpLoader(http);
+}

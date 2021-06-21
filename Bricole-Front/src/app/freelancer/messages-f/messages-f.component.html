@@ -1,0 +1,106 @@
+ <!-- Wrapper -->
+ <div id="wrapper">
+	<app-header-login></app-header-login>
+  <div class="dashboard-container">
+    <div class="dashboard-sidebar">
+        <app-sidebar-freelancer></app-sidebar-freelancer>
+    </div>   
+    <div class="dashboard-content-container"  >
+<!-- Dashboard Content
+	================================================== -->
+	 
+		<div class="dashboard-content-inner" >
+			
+			<!-- Dashboard Headline -->
+			<div class="dashboard-headline">
+				<h3>Messages</h3>
+
+				<!-- Breadcrumbs -->
+				<nav id="breadcrumbs" class="dark">
+					<ul>
+						<li>Dashboard</li>
+						<li>Messages</li>
+					</ul>
+				</nav>
+			</div>
+	
+				<div class="messages-container margin-top-0">
+                    <!-- Message Content -->
+						 <div class="message-content">
+
+							<div class="messages-headline">
+								<h4>{{client.nom}} {{client.prenom}}</h4>
+								<a [routerLink]="[ '/freelancer-message']" class="message-action"> Retour</a>
+							</div>
+							
+							<!-- Message Content Inner -->
+							<div class="message-content-inner">
+									
+									<!-- Time Sign -->
+									 
+									<div *ngFor="let msg of conversation">
+									<div class="message-bubble " [ngClass]="{'me': verifier(msg.id)}">
+										<div class="message-bubble-inner " >
+											 
+											<div class="message-text"><p>{{msg.message}}</p></div>
+										</div>
+										<div class="clearfix"></div>
+									</div>
+								</div>
+							</div>
+							<!-- Message Content Inner / End -->
+							
+							<!-- Reply Area -->
+						<form method="post" [formGroup]="messageForm" (ngSubmit)="messager()">
+							<div class="message-reply">
+								<textarea cols="1" formControlName="message" name="message" rows="1" placeholder="Your Message" data-autoresize></textarea>
+								<button type="submit" class="button ripple-effect">Send</button>
+							</div>
+						</form>
+
+						</div>
+						<!-- Message Content -->
+					 
+			</div>
+			<!-- Messages Container / End -->
+
+
+
+			
+			<!-- Footer -->
+			<div class="dashboard-footer-spacer"></div>
+			<div class="small-footer margin-top-15">
+				<div class="small-footer-copyrights">
+					© 2021 <strong>Bricol</strong>. All Rights Reserved.
+				</div>
+				<ul class="footer-social-links">
+					<li>
+						<a href="#" title="Facebook" data-tippy-placement="top">
+							<i class="icon-brand-facebook-f"></i>
+						</a>
+					</li>
+					<li>
+						<a href="#" title="Twitter" data-tippy-placement="top">
+							<i class="icon-brand-twitter"></i>
+						</a>
+					</li>
+					<li>
+						<a href="#" title="Google Plus" data-tippy-placement="top">
+							<i class="icon-brand-google-plus-g"></i>
+						</a>
+					</li>
+					<li>
+						<a href="#" title="LinkedIn" data-tippy-placement="top">
+							<i class="icon-brand-linkedin-in"></i>
+						</a>
+					</li>
+				</ul>
+				<div class="clearfix"></div>
+			</div>
+			<!-- Footer / End -->
+
+		</div>
+	</div>
+	<!-- Dashboard Content / End -->
+	</div>
+	</div>

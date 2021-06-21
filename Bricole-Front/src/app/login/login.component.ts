@@ -31,11 +31,15 @@ export class LoginComponent implements OnInit {
   {     
       if(this.accountType == "Client"){
         this.clientService.login(this.loginForm.value).subscribe(res => {
+          console.log(res);
           localStorage.setItem('token',res[0]);
           localStorage.setItem('id',res[1].id);
           localStorage.setItem('nom',res[1].nom);
           localStorage.setItem('prenom',res[1].prenom);
           localStorage.setItem('email',res[1].email);
+          localStorage.setItem('pseudo',res[1].pseudo);
+          localStorage.setItem('telephone',res[1].telephone);
+          localStorage.setItem('accaountType',this.accountType);
           if(res[0])
           {
               this.router.navigate(['client-dash']);
@@ -50,6 +54,9 @@ export class LoginComponent implements OnInit {
           localStorage.setItem('nom',res[1].nom);
           localStorage.setItem('prenom',res[1].prenom);
           localStorage.setItem('email',res[1].email);
+          localStorage.setItem('pseudo',res[1].pseudo);
+          localStorage.setItem('telephone',res[1].telephone);
+          localStorage.setItem('accaountType',this.accountType);
           if(res[0])
           {
               this.router.navigate(['freelancer-dash']);
