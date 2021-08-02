@@ -24,9 +24,8 @@ class ProjetFactory extends Factory
     public function definition()
     {
         return [
-            'titre' => Str::random(50),
-             
-            'description' =>Str::random(200),
+            'titre' => $this->faker->title,
+            'description' =>$this->faker->text,
             'budget' => '100',
             'statut' => 'suspend',
             'dateDebut' =>now(),

@@ -21,7 +21,7 @@ class CreateClientsTable extends Migration
             $table->string('password');
             $table->string('email');
             $table->integer('telephone');
-            $table->binary('photo');
+            $table->string('filename');
             $table->string('ville');
             $table->integer('soldeGlobal');
             $table->integer('soldeActuel');

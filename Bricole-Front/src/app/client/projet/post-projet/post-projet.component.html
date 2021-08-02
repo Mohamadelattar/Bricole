@@ -12,21 +12,21 @@
 			
 			<!-- Dashboard Headline -->
 			<div class="dashboard-headline">
-				<h3>Nouveau Projet</h3>
+				<h3>{{'Nouveau Projet' | translate}}</h3>
 
 				<!-- Breadcrumbs -->
 				<nav id="breadcrumbs" class="dark">
 					<ul>
 						
-						<li>Dashboard</li>
-						<li>Nouveau Projet</li>
+						<li>{{'Dashboard' | translate}}</li>
+						<li>{{'Nouveau Projet' | translate}}</li>
 					</ul>
 				</nav>
 			</div>
 				<div class="row">
 					<div *ngIf="validate" class="alert alert-success">
 					  
-						Le projet est ajouté avec success		   
+						{{'Le projet est ajouté avec success' | translate}}		   
 								   
 				</div>
 				</div>
@@ -39,7 +39,7 @@
 
 						<!-- Headline -->
 						<div class="headline">
-							<h3><i class="icon-feather-folder-plus"></i>Nouveau Projet</h3>
+							<h3><i class="icon-feather-folder-plus"></i>{{'Nouveau Projet' | translate}}</h3>
 						</div>
 						
 						<div class="content with-padding padding-bottom-10">
@@ -47,17 +47,17 @@
 
 								<div class="col-xl-9">
 									<div class="submit-field">
-										<h5>Titre du projet</h5>
+										<h5>{{'Titre du projet' | translate}}</h5>
 										<input type="text" formControlName="titre" name="titre" class="with-border">
 									</div>
 									<div *ngIf="projetForm.get('titre').invalid && (projetForm.get('titre').dirty || projetForm.get('titre').touched)"
 									class="alert alert-danger">
 					  
 								  <div *ngIf="projetForm.get('titre').errors.required">
-									Titre est obligatoire
+									{{'Titre est obligatoire' | translate}}
 								  </div>
 								  <div *ngIf="projetForm.get('titre').errors.minlength">
-									Le titre doit comporter au moins 10 caractères.
+									{{'Le titre doit comporter au moins 10 caractères.' | translate}}
 								  </div>
 								   
 								</div>
@@ -68,7 +68,7 @@
 
 								<div class="col-xl-4">
 									<div class="submit-field">
-										<h5>Categorie de projet</h5>
+										<h5>{{'Categorie de projet' | translate}}</h5>
 										<select class=" with-border" data-size="7" formControlName="categorie_id" title="Select Category">
 												<option *ngFor="let categorie of categories"
 												         [value]="categorie.id">
@@ -79,7 +79,7 @@
 									class="alert alert-danger">
 					  
 								  <div *ngIf="projetForm.get('categorie_id').errors.required">
-									Catégorie est obligatoire
+									{{'Catégorie est obligatoire' | translate}}
 								  </div>
 								  
 	
@@ -102,7 +102,7 @@
 
 								<div class="col-xl-4">
 									<div class="submit-field">
-										<h5>Budget</h5>
+										<h5>{{'Budget' | translate}}</h5>
 										<div class="row">
 											<div class="col-xl-6">
 												<div class="input-with-icon">
@@ -113,7 +113,7 @@
 									class="alert alert-danger">
 					  
 								  <div *ngIf="projetForm.get('budget').errors.required">
-									Categorie de projet est obligatoire
+									{{'Categorie de projet est obligatoire' | translate}}
 								  </div>
 								  
 	
@@ -136,16 +136,16 @@
 
 								<div class="col-xl-12">
 									<div class="submit-field">
-										<h5>Description</h5>
+										<h5>{{'Description' | translate}}</h5>
 										<textarea cols="30" rows="5" class="with-border" formControlName="description"></textarea>
 										<div *ngIf="projetForm.get('description').invalid && (projetForm.get('description').dirty || projetForm.get('description').touched)"
 									class="alert alert-danger">
 					  
 								  <div *ngIf="projetForm.get('description').errors.required">
-									Description est obligatoire
+									{{'Description est obligatoire' | translate}}
 								  </div>
 								  <div *ngIf="projetForm.get('description').errors.minlength">
-									La description doit comporter au moins 100 caractères.
+									{{'La description doit comporter au moins 100 caractères.' | translate}}
 								  </div>
 								  </div>
 										 
@@ -160,7 +160,7 @@
 			
 				<div class="col-xl-12">
 					<button   class="button ripple-effect big margin-top-30" type="submit" form="projet-form" >
-						<i class="icon-feather-plus"></i> Submit
+						<i class="icon-feather-plus"></i> {{'Submit' | translate}}
 					</button>
 				</div>
 			</form>

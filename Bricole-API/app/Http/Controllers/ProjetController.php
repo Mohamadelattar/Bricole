@@ -51,6 +51,13 @@ class ProjetController extends Controller
             return response()->json($projects);
     }
 
+    public function projetsClient(int $id)
+    {
+        
+        $projects = Projet::where('client_id',$id)->get();
+            return response()->json($projects);
+    }
+
     public function projetsConfirmee()
     {
         $search = "Approuver";
@@ -58,6 +65,19 @@ class ProjetController extends Controller
             return response()->json($projects);
     }
 
+    public function projetsConfirmeeParUtilisateur(int $id)
+    {
+        $search = "Approuver";
+            $projects =  Projet::where([['statut', $search],['client_id',$id]])->get();
+            return response()->json($projects);
+    }
+
+    public function projetsTerminerParUtilisateur(int $id)
+    {
+        $search = "Terminer";
+            $projects =  Projet::where([['statut', $search],['client_id',$id]])->get();
+            return response()->json($projects);
+    }
     
     public function approuver(int $id)
     {
@@ -71,6 +91,25 @@ class ProjetController extends Controller
     {
         $search = "Refus";
             $projects =  Projet::where('statut', $search)->get();
+            return response()->json($projects);
+    }
+    public function projects()
+    {
+        $projets =  DB::table('projets')
+                        ->take(5)
+                        ->get();
+
+         
+
+        return response()->json($projets);
+
+    }
+
+
+    public function projetsRefusParUtilisateur(int $id)
+    {
+        $search = "Refus";
+            $projects =  Projet::where([['statut', $search],['client_id',$id]])->get();
             return response()->json($projects);
     }
     

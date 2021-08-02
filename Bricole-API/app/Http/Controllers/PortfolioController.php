@@ -17,4 +17,11 @@ class PortfolioController extends Controller
                 ->response()
                 ->setStatusCode(201);
     }
+
+    public function portfolioFreelancer(int $id)
+    {
+        
+        $portfolios = Portfolio::where('freelancer_id',$id)->get();
+            return response()->json($portfolios);
+    }
 }

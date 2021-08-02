@@ -1,0 +1,51 @@
+<div id="wrapper">
+	<app-header *ngIf="!auth"></app-header>
+
+<div class="full-page-container">
+
+	 
+	
+	<!-- Full Page Content -->
+	<div class="full-page-content-container">
+		<div class="full-page-content-inner">
+			<h2>{{'Plomberie' | translate}}</h2>
+			<div class="listings-container grid-layout margin-top-35">
+				
+				  
+				<!-- Job Listing -->
+				<a *ngFor="let projet of projets" [routerLink]="[ '/projet', projet.id]" class="job-listing">
+
+					<!-- Job Listing Details -->
+					<div class="job-listing-details">
+						<!-- Logo -->
+						<div class="job-listing-company-logo">
+							<img src="../../assets/images/job-category-01.jpg" alt="">
+						</div>
+
+						<!-- Details -->
+						<div class="job-listing-description">
+
+							<h3 class="job-listing-title">{{projet.titre}}</h3>
+							
+						</div>
+					</div>
+
+					<!-- Job Listing Footer -->
+					<div class="job-listing-footer">
+						<span class="bookmark-icon"></span>
+						<ul>
+							<li><i class="icon-material-outline-location-on"></i>Agadir</li>
+							<li><i class="icon-material-outline-business-center"></i>{{projet.dateDebut}}</li>
+							<li><i class="icon-material-outline-account-balance-wallet"></i> {{projet.budget}}</li>
+						</ul>
+					</div>
+				</a>
+            				 
+			</div>
+			 
+		</div>
+	</div>
+	<!-- Full Page Content / End -->
+</div>
+<app-footer></app-footer>
+</div>

@@ -1,0 +1,132 @@
+ <!-- Wrapper -->
+ <div id="wrapper">
+	<app-header-login></app-header-login>
+<div class="dashboard-container">
+    <div class="dashboard-sidebar">
+        <app-sidebar></app-sidebar>
+    </div>
+    <div class="dashboard-content-container" >
+<!-- Dashboard Content ================================================== -->
+	 
+		<div class="dashboard-content-inner" >
+			
+			<!-- Dashboard Headline -->
+			<div class="dashboard-headline">
+				<h3>{{'Application' | translate}}</h3>
+
+				<!-- Breadcrumbs -->
+				<nav id="breadcrumbs" class="dark">
+					<ul>
+						
+						<li>{{'Dashboard' | translate}}</li>
+						<li>{{'Application' | translate}}</li>
+					</ul>
+				</nav>
+			</div>
+				<div class="row">
+					<div *ngIf="validate" class="alert alert-success">
+					  
+						{{'Le projet est ajouté avec success' | translate}}		   
+								   
+				</div>
+				</div>
+			<!-- Row -->
+			<div class="row">
+				<form method="post" [formGroup]="applicationForm" (ngSubmit)="applicationSend"  id="application-form">
+				<!-- Dashboard Box -->
+				<div class="col-xl-12"  >
+					<div class="dashboard-box margin-top-0">
+
+						<!-- Headline -->
+						<div class="headline">
+							<h3><i class="icon-feather-folder-plus"></i>{{'Application' | translate}}</h3>
+						</div>
+						
+						<div class="content with-padding padding-bottom-10">
+							<div class="row">
+
+								<div class="col-xl-9">
+									<div class="submit-field">
+										<h5>{{'Freelancer' | translate}}</h5>
+										<input type="text" formControlName="freelancer" name="freelancer" readonly value="{{freelancer.nom}} {{freelancer.prenom}}" class="with-border">
+									</div>
+								</div>
+                                <div class="col-xl-9">
+									<div class="submit-field">
+										<h5>{{'Projet' | translate}}</h5>
+										<input type="text" formControlName="projet" name="projet"  readonly value="{{projet.titre}}" class="with-border">
+									</div>
+								</div>
+
+								 
+ 
+								
+								<div class="col-xl-4">
+                                    <h5>Payement</h5>
+									<div *ngIf=paidFor>
+                                        <h1>Yay, you bought a sweet couch!</h1>
+                                      
+                                        <img src="assets/giphy.gif">
+                                      </div>
+                                      
+                                      
+                                      <div [hidden]="paidFor" #paypal></div>
+								</div>
+								 
+                                   
+ 
+							</div>
+						</div>
+					
+					</div>
+				</div>
+                <div class="col-xl-12">
+                    <button class="button ripple-effect big margin-top-30" type="submit" form="application-form" >
+                        <i class="icon-feather-plus"></i>Submit
+                    </button>
+                </div>
+				 
+					 
+				 
+			</form>
+
+			</div>
+			<!-- Row / End -->
+
+			<!-- Footer -->
+			<div class="dashboard-footer-spacer"></div>
+			<div class="small-footer margin-top-15">
+				<div class="small-footer-copyrights">
+					© 2021 <strong>Bricol</strong>. All Rights Reserved.
+				</div>
+				<ul class="footer-social-links">
+					<li>
+						<a href="#" title="Facebook" data-tippy-placement="top">
+							<i class="icon-brand-facebook-f"></i>
+						</a>
+					</li>
+					<li>
+						<a href="#" title="Twitter" data-tippy-placement="top">
+							<i class="icon-brand-twitter"></i>
+						</a>
+					</li>
+					<li>
+						<a href="#" title="Google Plus" data-tippy-placement="top">
+							<i class="icon-brand-google-plus-g"></i>
+						</a>
+					</li>
+					<li>
+						<a href="#" title="LinkedIn" data-tippy-placement="top">
+							<i class="icon-brand-linkedin-in"></i>
+						</a>
+					</li>
+				</ul>
+				<div class="clearfix"></div>
+			</div>
+			<!-- Footer / End -->
+
+		</div>
+	 </div>
+	<!-- Dashboard Content / End -->
+	</div>
+	</div>

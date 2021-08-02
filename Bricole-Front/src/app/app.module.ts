@@ -26,6 +26,7 @@ import { LoginComponent } from './login/login.component';
 import { HeaderLoginComponent } from './header-login/header-login.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { PageProjetComponent } from './page-projet/page-projet.component';
+ 
 
 // search module
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
@@ -46,6 +47,21 @@ import { FreelancerPageComponent } from './freelancer-page/freelancer-page.compo
 import { ClientPageComponent } from './client-page/client-page.component';
 import { MessagesComponent } from './client/messages/messages.component';
 import { MessagesFComponent } from './freelancer/messages-f/messages-f.component';
+import { PlomberieComponent } from './plomberie/plomberie.component';
+import { PeintureComponent } from './peinture/peinture.component';
+import { ChauffageComponent } from './chauffage/chauffage.component';
+import { ElectriciteComponent } from './electricite/electricite.component';
+import { MenuiserieComponent } from './menuiserie/menuiserie.component';
+import { RenovationComponent } from './renovation/renovation.component';
+import { ElectromenagerComponent } from './electromenager/electromenager.component';
+import { MontageComponent } from './montage/montage.component';
+import { RegisterComponent } from './register/register.component';
+import { LoginAdminComponent } from './login-admin/login-admin.component';
+import { ProjetCommentaireComponent } from './client/projet/projet-commentaire/projet-commentaire.component';
+import { SoldeComponent } from './client/solde/solde.component';
+import { BalanceComponent } from './client/balance/balance.component';
+import { ApplicationComponent } from './client/projet/application/application.component';
+import { PortfolioComponent } from './freelancer/portfolio/portfolio.component';
 
 const appRoutes: Routes = [
    
@@ -57,6 +73,8 @@ const appRoutes: Routes = [
   { path: 'projet-post', component: PostProjetComponent , canActivate:[AuthService]},
   { path: 'profil-edit', component: ProfilEditComponent , canActivate:[AuthService]},
   { path: 'projet-post-two', component: PostProjetTwoComponent , canActivate:[AuthService]},
+  { path: 'projet-commentaire/:idProjectCommentaire', component:ProjetCommentaireComponent,canActivate:[AuthService]},
+
   { path: 'freelancer-dash', component: DashbordFreelancerComponent},
   { path: 'freelancer/:idFreelancer', component: FreelancerPageComponent},
   { path: 'freelancer-message', component: MessageFreelancerComponent},
@@ -64,13 +82,29 @@ const appRoutes: Routes = [
   { path: 'portfolio-post', component: PostPortfolioComponent},
   { path: 'portfolio-post-two', component: PostPortfolioTwoComponent },
   { path: 'porfil-freelancer', component: ProfilFreelancerComponent},
+  { path: 'portfolio-freelancer', component: PortfolioComponent },
+  { path:'admin', component:DashboardAdminComponent},
+  { path:'message-admin', component:MessageAdminComponent},
   { path: 'projets', component: ProjetsComponent},
   { path: 'projets-confirme', component: ProjetsConfirmeComponent},
   { path: 'projets-refus', component: ProjetRefusComponent},
+  { path: 'plomberie' ,  component:PlomberieComponent},
+  { path: 'peinture' , component:PeintureComponent},
+  { path: 'chauffage', component:ChauffageComponent},
+  { path: 'electricite', component:ElectriciteComponent},
+  { path: 'menuiserie', component:MenuiserieComponent}, 
+  { path: 'renovation', component:RenovationComponent},
+  { path: 'electromenager', component:ElectromenagerComponent},
+  { path: 'montage', component:MontageComponent},
   { path: 'index', component: HomeComponent},
+  { path: 'portfolios', component: PortfolioComponent},
   { path: 'projet/:idProjet', component: PageProjetComponent},
+  { path: 'application/:idCommentaire', component: ApplicationComponent},
   { path: '', component: HomeComponent},
   { path: 'login', component: LoginComponent},
+  { path: 'login-admin', component: LoginAdminComponent},
+  { path: 'solde', component: SoldeComponent},
+  { path: 'register', component: RegisterComponent},
   
   
 
@@ -113,7 +147,22 @@ const appRoutes: Routes = [
     FreelancerPageComponent,
     ClientPageComponent,
     MessagesComponent,
-    MessagesFComponent
+    MessagesFComponent,
+    PlomberieComponent,
+    PeintureComponent,
+    ChauffageComponent,
+    ElectriciteComponent,
+    MenuiserieComponent,
+    RenovationComponent,
+    ElectromenagerComponent,
+    MontageComponent,
+    RegisterComponent,
+    LoginAdminComponent,
+    ProjetCommentaireComponent,
+    SoldeComponent,
+    BalanceComponent,
+    ApplicationComponent,
+    PortfolioComponent
   ],
   imports: [
     BrowserModule,

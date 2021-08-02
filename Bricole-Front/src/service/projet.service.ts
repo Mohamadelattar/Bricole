@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 const projetUrl="http://127.0.0.1:8000/api/projet";
 const projetsUrl="http://127.0.0.1:8000/api/projets";
+const projectsUrl="http://127.0.0.1:8000/api/projects";
 const projetsConfirmeUrl="http://127.0.0.1:8000/api/projetsConfirme";
 const projetsListRefusUrl="http://127.0.0.1:8000/api/projetsRefus";
 const galleryUrl="http://127.0.0.1:8000/api/gallery";
@@ -11,6 +12,8 @@ const commentairesUrl="http://127.0.0.1:8000/api/commentaires";
 const projetEditUrl="http://127.0.0.1:8000/api/projet-edit";
 const projetRefusUrl="http://127.0.0.1:8000/api/projet-refus";
 const projetsClient="http://127.0.0.1:8000/api/projects/client/";
+const projetsClientConfirme="http://127.0.0.1:8000/api/projet-clientConfirmes/";
+const projetsClientTerminer="http://127.0.0.1:8000/api/projet-clientTerminer/";
 @Injectable({
   providedIn: 'root'
 })
@@ -34,12 +37,24 @@ export class ProjetService {
     return this.http.get(projetsClient+id);
   }
 
+  getProjetsClientConfirmes(id:number){
+    return this.http.get(projetsClientConfirme+id);
+  }
+
+  geProjetsClientTerminer(id:number){
+    return this.http.get(projetsClientTerminer+id);
+  }
+
   getProjet(id:number){
     return this.http.get(projetUrl+"/"+id);
   }
 
   getProjets(){
     return this.http.get(projetsUrl);
+  }
+
+  getProjects(){
+    return this.http.get(projectsUrl);
   }
 
   getProjetsConfirmee(){

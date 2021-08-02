@@ -22,7 +22,7 @@ class CategorieFactory extends Factory
     public function definition()
     {
         return [
-            'nom' => $this->faker->name,
+            'nom' => $this->faker->randomElement(["Plomberie","Peinture","Chauffage","Electricite","Menuiserie","Renovation","Electromenager","Montage"]),
         ];
     }
 }

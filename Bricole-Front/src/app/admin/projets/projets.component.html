@@ -21,7 +21,7 @@
 			<div class="row">
 				<div *ngIf="refu" class="alert alert-danger">
 				  
-					Le projet est approuvé avec success		   
+					Le projet est refusé avec success		   
 							   
 			</div>
 			</div>
@@ -35,7 +35,7 @@
 					<ul>
 						 
 						<li>Dashboard</li>
-						<li>Mes Projets</li>
+						<li>Projets non confirmées</li>
 					</ul>
 				</nav>
 			</div>
@@ -49,7 +49,7 @@
 
 						<!-- Headline -->
 						<div class="headline">
-							<h3><i class="icon-material-outline-assignment"></i> Mes Projets</h3>
+							<h3><i class="icon-material-outline-assignment"></i> Projets non confirmées</h3>
 						</div>
 						<div class="content" *ngFor="let projet of projets">
 							<ul class="dashboard-box-list">
@@ -73,7 +73,7 @@
 									<ul class="dashboard-task-info">
 										<li><a  [routerLink]="[ '/projet', projet.id]"><strong>Voir</strong></a></li>
 										<li><button (click)="approuver(projet.id)"><strong>Approuver</strong></button></li>
-										<li><button (click)="refus(projet.id)"><strong>Refus</strong></button></li>
+										<li><button (click)="refus(projet.id)"><strong>Refuser</strong></button></li>
 									</ul>
 
 									<!-- Buttons -->

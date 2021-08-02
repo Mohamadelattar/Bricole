@@ -1,7 +1,7 @@
 {
     "Home": "Acceuil",
-    "Find work": "Trouver un travail",
-    "For Employers": "Trouver un freelancer",
+    "Find work": "Chercher un travail",
+    "For Employers": "Chercher un freelancer",
     "Browse projects": "Projets",
     "Browse Freelancers":"Freelancers",
     "Log In / Register":"Se connecter/ Register",
@@ -16,7 +16,32 @@
     "Search" : "Chercher",
     "Jobs Posted": "Projets publiés",
     "Freelancers": "Freelancers",
-    "Popular Categories" : "Catégories populaires"
+    "Popular Categories" : "Catégories populaires",
+    "Highest Rated Freelancers": "Les freelancers les mieux notés",
+    "Browse All Freelancers" :  "Parcourir tous les freelancers",
+    "View Profile" : "Voir Profile",
+    "Location" : "Lieu",
+    "Tasks Posted":"Tâches publiées",
+    "Active Members":"Membres actifs",
+    "Satisfaction Rate":"Taux de satisfaction",
+    "How It Works?" : "Comment ça fonctionne?",
+    "Create an Account" : "Creer un compte",
+    "how-work":"Proposez des stratégies de survie gagnant-gagnant pour assurer une domination proactive à l'avenir.",
+    "Post a Task":"Publier une tâche",
+    "Post para":"Libérez efficacement les informations cross-média sans. Maximisez rapidement le retour sur investissement.",
+    "Choose an Expert":"Choisissez un expert",
+    "Choose para":"L'immersion en nanotechnologie le long de l'autoroute de l'information fermera la boucle sur la focalisation uniquement.",
+    "Para home":"Proposez vos compétences",
+    "Para home1":"de bricoleurs à domicile en quelques clics",
+    "Para home2":"Bricolage, plomberie, menuiserie,",
+    "Para home3":" recherchez des missions pour vous !",
+    "Para home4":"Commencer ",
+    "Dashboard" : "Dashboard",
+    "Para projet two":"Images ou documents qui pourraient être utiles pour décrire votre projet"
+    
+
+    
+     
     
 
 }

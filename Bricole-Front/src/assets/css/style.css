@@ -4527,7 +4527,8 @@ span.blog-item-tag {
 }
 
 .job-listing .job-listing-footer {
-	background-color: #f9f9f9;
+	background-color: #2A41E8;
+	opacity: 0.7;
 	padding: 20px 35px;
 	border-radius: 0 0 4px 4px;
 	position: relative;
@@ -4542,7 +4543,7 @@ span.blog-item-tag {
 .job-listing .job-listing-footer ul li {
 	display: inline-block;
 	margin-right: 14px;
-	color: #777;
+	color: #fff;
 }
 
 .job-listing .job-listing-footer ul li:last-child {
@@ -4557,7 +4558,7 @@ span.blog-item-tag {
 	position: relative;
 	top: 1px;
 	margin-right: 3px;
-	color: #777;
+	color: #fff;
 }
 
 /* Media Queries for Default List Layout*/

@@ -13,18 +13,18 @@
 						<div class="header-image"><a href="single-company-profile.html"><img src="../../assets/images/browse-companies-02.png" alt=""></a></div>
 						<div class="header-details">
 							<h3>{{projet.titre}}</h3>
-							<h5>nom de le client</h5>
+							<h5>Hichame Rachidi</h5>
 							<ul>
-								<li><a href="single-company-profile.html"><i class="icon-material-outline-business"></i> Acue</a></li>
+								<li><a href="single-company-profile.html"><i class="icon-material-outline-business"></i></a></li>
 								<li><div class="star-rating" data-rating="5.0"></div></li>
-								<li><img class="flag" src="../../assets/images/flags/de.svg" alt=""> Maroc</li>
+								<li>Agadir</li>
 								<li><div class="verified-badge-with-title">Verified</div></li>
 							</ul>
 						</div>
 					</div>
 					<div class="right-side">
 						<div class="salary-box">
-							<div class="salary-type">Project Budget</div>
+							<div class="salary-type">Budget du projet</div>
 							<div class="salary-amount">{{projet.budget}}$</div>
 						</div>
 					</div>
@@ -59,17 +59,17 @@
 
 			<!-- Skills -->
 			<div class="single-page-section">
-				<h3>Skills Required</h3>
+				<h3>Compétences requises</h3>
 				<div class="task-tags">
-					<span>iOS</span>
-					<span>Android</span>
-					<span>mobile apps</span>
-					<span>design</span>
+					<span>Peinture</span>
+					<span>Electricite</span>
+					<span>Plomberie</span>
+					<span>Chauffage</span>
 				</div>
 			</div>
 			<div class="clearfix"></div>
 
-			<div *ngIf=afficherPostuler class="bidding-widget">
+			<div *ngIf=afficherPostuler  class="bidding-widget">
 				<div class="bidding-headline"><h3>Bid on this job!</h3></div>
 				<div class="bidding-inner">
 					<form method="POST" [formGroup]="postulerForm" (ngSubmit)="postuler()">
@@ -89,15 +89,15 @@
 			</div>
 
 			<div *ngIf=!afficherPostuler class="bidding-widget">
-				<div class="bidding-inner">
-					 <h2 id="snackbar-place-bid">Vous avez déja postuler a cette offre</h2>
+				<div *ngIf=afficherMessage class="bidding-inner">
+					 <h2  id="snackbar-place-bid">Vous avez déja postuler a cette offre</h2>
 				</div>
 			</div>
 			
 			<!-- Freelancers Bidding -->
 			<div class="boxed-list margin-bottom-60">
 				<div class="boxed-list-headline">
-					<h3><i class="icon-material-outline-group"></i> Freelancers Bidding</h3>
+					<h3><i class="icon-material-outline-group"></i> Freelancers </h3>
 				</div>
 				<ul class="boxed-list-ul" *ngFor="let commentaire of commentaires ;  let i=index">
 					<li>
@@ -106,7 +106,7 @@
 							<div class="bids-avatar">
 								<div class="freelancer-avatar">
 									<div class="verified-badge"></div>
-									<a href="single-freelancer-profile.html"><img src="../../assets/images/user-avatar-big-01.jpg" alt=""></a>
+									<a href="single-freelancer-profile.html"><img src="{{freelnacers[i].filename}}" alt=""></a>
 								</div>
 							</div>
 							
@@ -114,8 +114,8 @@
 							<div class="bids-content">
 								<!-- Name -->
 								<div class="freelancer-name">
-									<h4><a [routerLink]="[ '/freelancer', freelnacers[i].id]">{{freelnacers[i].nom}}<img class="flag" src="../../assets/images/flags/gb.svg" alt="" title="United Kingdom" data-tippy-placement="top"></a></h4>
-									<div class="star-rating" data-rating="4.9"></div>
+									<h4><a [routerLink]="[ '/freelancer', freelnacers[i].id]">{{freelnacers[i].nom}}</a></h4>
+									<div class="star-rating" data-rating="5"></div>
 								</div>
 							</div>
 							
@@ -123,7 +123,9 @@
 							<div class="bids-bid">
 								<div class="bid-rate">
 									<div class="rate"> {{commentaire.commentaire}}</div>
+							
 								</div>
+								 
 							</div>
 						</div>
 					</li>
@@ -137,7 +139,7 @@
 		<div class="col-xl-4 col-lg-4">
 			<div class="sidebar-container">
 
-				<div class="countdown green margin-bottom-35">6 days, 23 hours left</div>
+				<div class="countdown green margin-bottom-35">6 jours, 23 heures</div>
 
 				 
 

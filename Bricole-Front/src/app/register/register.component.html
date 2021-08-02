@@ -1,0 +1,111 @@
+ <!-- Wrapper -->
+ <div id="wrapper">
+	<app-header></app-header>
+    <!-- Titlebar
+================================================== -->
+<div id="titlebar" class="gradient">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+
+				<h2>Register</h2>
+
+				<!-- Breadcrumbs -->
+				<nav id="breadcrumbs" class="dark">
+					<ul>
+						<li><a href="#">Home</a></li>
+						<li>Register</li>
+					</ul>
+				</nav>
+
+			</div>
+		</div>
+	</div>
+</div>
+<!-- Account Type -->
+
+
+		<!-- Page Content
+================================================== -->
+<div class="container">
+	<div class="row">
+		<div class="col-xl-5 offset-xl-3">
+
+
+			<div class="login-register-page">
+				<!-- Welcome Text -->
+				<div class="welcome-text">
+					<h3>Let's create your account!</h3>
+					<span>Already have an account? <a [routerLink]="[ '/login' ]" >Log In!</a></span>
+
+				</div>
+				 
+				<div class="account-type" [ngClass]="{'form' : !isForm}">
+					
+					<div>
+						<input type="radio" (click)="freelancer()" name="account-type-radio" id="freelancer-radio" class="account-type-radio"/>
+						<label for="freelancer-radio" class="ripple-effect-dark"><i class="icon-material-outline-account-circle"></i> Freelancer</label>
+					</div>
+				
+					<div>
+						<input type="radio" (click)="client()" name="account-type-radio" id="employer-radio" class="account-type-radio"/>
+						<label for="employer-radio" class="ripple-effect-dark"><i class="icon-material-outline-business-center"></i> Employer</label>
+					</div>
+				</div>
+				<div [ngClass]="{'form' : isForm}" >
+				<!-- Form -->
+				
+				<form method="post" [formGroup]="registerForm" (ngSubmit)="register()"  id="register-form">
+					
+                    <div class="input-with-icon-left">
+						<i class="icon-material-baseline-mail-outline"></i>
+						<input type="text" class="input-text with-border" formControlName="pseudo" name="psuedo" id="nom" placeholder="Pseudo" required/>
+					</div>
+
+                    <div class="input-with-icon-left">
+						<i class="icon-material-baseline-mail-outline"></i>
+						<input type="text" class="input-text with-border" formControlName="nom" name="nom" id="nom" placeholder="Nom" required/>
+					</div>
+
+                    <div class="input-with-icon-left">
+						<i class="icon-material-baseline-mail-outline"></i>
+						<input type="text" class="input-text with-border" formControlName="prenom" name="prenom" id="prenom" placeholder="Prenom" required/>
+					</div>
+
+					<div class="input-with-icon-left">
+						<i class="icon-material-outline-lock"></i>
+						<input type="password" class="input-text with-border" formControlName="password" name="password" id="password" placeholder="Password" required/>
+					</div>
+
+                    <div class="input-with-icon-left">
+						<i class="icon-material-baseline-mail-outline"></i>
+						<input type="text" class="input-text with-border" formControlName="email" name="email" id="emailaddress" placeholder="Email Address" required/>
+					</div>
+
+                    <div class="input-with-icon-left">
+						<i class="icon-material-baseline-phone-outline"></i>
+						<input type="text" class="input-text with-border" formControlName="telephone" name="telephone" id="telephone" placeholder="Telephone" required/>
+					</div>
+					 
+				</form>
+				</div>
+				<!-- Button -->
+				<button [ngClass]="{'form' : isForm}" class="button full-width button-sliding-icon ripple-effect margin-top-10" type="submit" form="register-form">Register<i class="icon-material-outline-arrow-right-alt"></i></button>				
+				<!-- Social Login -->
+				 
+			</div>
+			 
+
+		</div>
+	</div>
+</div>			
+
+
+
+
+<!-- Spacer -->
+<div class="margin-top-70"></div>
+<!-- Spacer / End-->
+
+<app-footer></app-footer>
+</div>

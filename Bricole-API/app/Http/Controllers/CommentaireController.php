@@ -38,4 +38,10 @@ class CommentaireController extends Controller
 
         return response()->json([$commentaires , $freelancers]);
     }
+
+    public function commentaire($id){
+        $commentaire=commentaire::where('id',$id)->first();
+
+    return response()->json($commentaire);
+    }
 }

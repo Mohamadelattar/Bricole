@@ -23,14 +23,14 @@ class FreelancerFactory extends Factory
     public function definition()
     {
         return [
-            'pseudo'=>Str::random(10),
-            'nom'=>Str::random(10),
-            'prenom'=>Str::random(10),
+            'pseudo'=>Str::random(5),
+            'nom'=>$this->faker->firstName,
+            'prenom'=>$this->faker->lastName,
             'password'=>'$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi',
             'email' =>$this->faker->unique()->safeEmail,
             'telephone' => "0600000000",
-            'photo' => $this->faker->image('public/storage',640,480, null, false),
-            'ville' => Str::random(10),
+            'filename' => "https://img.icons8.com/bubbles/2x/4a90e2/user-male.png",
+            'ville' => "Agadir",
             'soldeGlobal' => '100',
             'soldeActuel' => '100',
             'profession_id' => Profession::all()->random()->id,

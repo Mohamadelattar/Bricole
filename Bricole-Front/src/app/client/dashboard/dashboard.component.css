@@ -17,3 +17,11 @@ app-sidebar {
     color: #efa80f;
 }
 
+.buttons-to-right a
+{
+    text-decoration: none;
+}
+
+.dashboard-box-list a{
+    text-decoration: none;
+}

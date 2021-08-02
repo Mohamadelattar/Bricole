@@ -3,6 +3,7 @@ import { CategorieService } from './../../../../service/categorie.service';
 import { ProjetService } from './../../../../service/projet.service';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { TranslateService } from '@ngx-translate/core';
  
  
 
@@ -28,11 +29,26 @@ export class PostProjetComponent implements OnInit {
   fileEvent(e){
       this.filedata = e.target.files[0];
   }
-
+  /* textDir: string = 'ltr';*/
   constructor(private projetService: ProjetService, 
               private categorieService: CategorieService,
-              private router:Router        
-    ) { }
+              private router:Router,
+              public translate: TranslateService        
+    ) {
+      translate.addLangs(['fr', 'ar']);
+    translate.setDefaultLang('fr');
+  /*  this.translate.onLangChange.subscribe((event: LangChangeEvent) =>
+  {
+    if(event.lang == 'ar')
+    {
+      this.textDir = 'rtl';
+    } 
+    else
+    {
+      this.textDir = 'ltr';
+    }
+  });*/
+     }
 
   ngOnInit(): void {
     
@@ -58,7 +74,9 @@ export class PostProjetComponent implements OnInit {
  
 
   }
-
+  switchLang(lang: string) {
+    this.translate.use(lang);
+  }
   projet()
   {
      

@@ -20,6 +20,8 @@ export class PageProjetComponent implements OnInit {
   postulerForm:FormGroup;
   freelancer_id:number;
   afficherPostuler = true;
+  afficherMessage = true;
+  accaountType:string;
 
   ngOnInit(): void {
     this.connected();
@@ -49,6 +51,8 @@ export class PageProjetComponent implements OnInit {
     this.projetService.getProjetGallery(this.id).subscribe(res =>{
       this.images = res;
     })
+
+    this.accaountType = localStorage.getItem("accaountType");
   }
 
   postuler()
@@ -56,7 +60,7 @@ export class PageProjetComponent implements OnInit {
     this.postulerForm.patchValue({'projet_id':this.id});
     console.log(this.postulerForm.value);
     this.projetService.saveCommentaire(this.postulerForm.value).subscribe(res =>{
-      console.log("ahya hati n9ada");
+       
     })
   }
   connected()
@@ -67,15 +71,21 @@ export class PageProjetComponent implements OnInit {
 
     
   }
+  
   testerPostuler()
   {
     this.freelancer_id = Number(localStorage.getItem('id'));
     for (let index = 0; index < this.freelnacers.length; index++) {
-      if(this.freelnacers[index].id == this.freelancer_id)
+      if(this.freelnacers[index].id === this.freelancer_id )
       {
         this.afficherPostuler = false;
       }
       
+    }
+    if(this.accaountType != "Freelancer")
+    {
+      this.afficherPostuler = false;
+      this.afficherMessage = false;
     }
   }
 }

@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\ValidationException;
 use App\Http\Resources\AuthResource;
 use App\Models\Freelancer;
+use App\Models\Administrateur;
 
 class AuthController extends Controller
 {
@@ -42,6 +43,22 @@ public function loginFreelancer(Request $request){
 
     $freelancer= new AuthResource($freelancer);
     return response()->json([$freelancer->createToken('auth')->plainTextToken,$freelancer]);
+
+}
+
+public function loginAdmin(Request $request){
+    $credentials = $request->all();
+
+    $admin = Administrateur::where('email', $request->email)->first();
+
+    //session(['client' => $client]);
+    if(!$admin || !Hash::check($request->password, $admin->password)){
+    
+    return response()->json('Invalid credentials');
+    }
+
+    $admin= new AuthResource($admin);
+    return response()->json([$admin->createToken('auth')->plainTextToken,$admin]);
 
 }
 }

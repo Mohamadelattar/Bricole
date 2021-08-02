@@ -14,26 +14,22 @@
             <!-- Navigation -->
             <div class="dashboard-nav">
                 <div class="dashboard-nav-inner">
-
                     <ul data-submenu-title="Start">
-                        <li><a routerLinkActive="active" routerLink="/client-dash"><i class="icon-material-outline-dashboard"  i18n></i> Dashboard</a></li>
-                        <li><a routerLinkActive="active" routerLink="/client-message"><i class="icon-material-outline-question-answer"  i18n></i> Messages <span class="nav-tag">2</span></a></li>
+                        <li><a routerLinkActive="active" routerLink="/client-dash"><i class="icon-material-outline-dashboard"  i18n></i> {{'Dashboard' | translate}}</a></li>
+                        <li><a routerLinkActive="active" routerLink="/client-message"><i class="icon-material-outline-question-answer"  i18n></i> {{'Messages' | translate}}<span class="nav-tag">2</span></a></li>
                     </ul>
                     
-                    <ul data-submenu-title="Projets">
-                        
-                                <li><a routerLinkActive="active" routerLink="/projet-post"><i class="icon-material-outline-business-center"  i18n></i> Nouveau projet</a></li>
-                                <li><a routerLinkActive="active" routerLink="/client-projet"><i class="icon-feather-bookmark"  i18n></i> Nos Projets <span class="nav-tag">3</span></a></li>
-                            
-                         
-                         
+                    <ul data-submenu-title="Projets">        
+                                <li><a routerLinkActive="active" routerLink="/projet-post"><i class="icon-material-outline-business-center"  i18n></i> {{'Nouveau projet' | translate}}</a></li>
+                                <li><a routerLinkActive="active" routerLink="/client-projet"><i class="icon-feather-bookmark"  i18n></i> {{'Projets' | translate}} <span class="nav-tag">3</span></a></li>
                     </ul>
-
+                    <ul data-submenu-title="Budget">
+                        <li><a routerLinkActive="active" routerLink="/projet-post"><i class="icon-material-outline-business-center"  i18n></i>{{'Solde' | translate}}</a></li>
+                    </ul>
                     <ul data-submenu-title="Profil">
-                        <li><a routerLinkActive="active" routerLink="/profil-edit"><i class="icon-material-outline-settings"  i18n></i> Settings</a></li>
+                        <li><a routerLinkActive="active" routerLink="/profil-edit"><i class="icon-material-outline-settings"  i18n></i>{{'Settings' | translate}}</a></li>
                        
-                    </ul>
-                    
+                    </ul>    
                 </div>
             </div>
             <!-- Navigation / End -->

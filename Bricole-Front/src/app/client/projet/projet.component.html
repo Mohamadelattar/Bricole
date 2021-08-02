@@ -13,14 +13,14 @@
 			
 			<!-- Dashboard Headline -->
 			<div class="dashboard-headline">
-				<h3>Mes Projets</h3>
+				<h3>{{'Mes Projets' | translate}}</h3>
 
 				<!-- Breadcrumbs -->
 				<nav id="breadcrumbs" class="dark">
 					<ul>
 						 
-						<li>Dashboard</li>
-						<li>Mes Projets</li>
+						<li>{{'Dashboard' | translate}}</li>
+						<li>{{'Mes Projets' | translate}}</li>
 					</ul>
 				</nav>
 			</div>
@@ -34,7 +34,7 @@
 
 						<!-- Headline -->
 						<div class="headline">
-							<h3><i class="icon-material-outline-assignment"></i> Mes Projets</h3>
+							<h3><i class="icon-material-outline-assignment"></i>{{'Mes Projets' | translate}}</h3>
 						</div>
 						<div class="content" *ngFor="let projet of projets">
 							<ul class="dashboard-box-list">
@@ -56,14 +56,14 @@
 									
 									<!-- Task Details -->
 									<ul class="dashboard-task-info">
-										<li><strong>3</strong><span>Bids</span></li>
-										<li><strong>{{projet.budget}}</strong><span>$Budget</span></li>
-										<li><strong>$15 - $30</strong><span>Hourly Rate</span></li>
+										<li><strong>3</strong><span>{{'Bids' | translate}}</span></li>
+										<li><strong>{{projet.budget}}</strong><span>${{'Budget' | translate}}</span></li>
+
 									</ul>
 
 									<!-- Buttons -->
 									<div class="buttons-to-right always-visible">
-										<a href="" class="button ripple-effect"><i class="icon-material-outline-supervisor-account"></i> Commentaire <span class="button-info">3</span></a>
+										<a [routerLink]="[ '/projet-commentaire', projet.id ]" class="button ripple-effect"><i class="icon-material-outline-supervisor-account"></i> {{'Commentaires' | translate}} <span class="button-info"></span></a>
 										<a href="#" class="button gray ripple-effect ico" title="Edit" data-tippy-placement="top"><i class="icon-feather-edit"></i></a>
 										<a href="#" class="button gray ripple-effect ico" title="Remove" data-tippy-placement="top"><i class="icon-feather-trash-2"></i></a>
 									</div>

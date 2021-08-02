@@ -1,6 +1,7 @@
 import { LoginComponent } from './../login/login.component';
 import { Component, OnInit } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
+import { ActivatedRoute, Router } from '@angular/router';
  
 export interface User {
   id: number;
@@ -23,7 +24,7 @@ export class HeaderLoginComponent implements OnInit {
   };
 
   name: string;
-  constructor(public translate: TranslateService) {
+  constructor(public translate: TranslateService , private router:Router) {
     this.user.id = Number(localStorage.getItem("id"));
     this.user.nom = localStorage.getItem("nom");
     this.user.prenom = localStorage.prenom;
@@ -51,7 +52,12 @@ export class HeaderLoginComponent implements OnInit {
   switchLang(lang: string) {
     this.translate.use(lang);
   }
-
+  logout()
+  {
+    localStorage.clear();
+    console.log("Ich bin da");
+    this.router.navigate(["/index"]);
+  }
  
 
  

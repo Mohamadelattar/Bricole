@@ -13,7 +13,7 @@
 	
 	<!-- Logo -->
 	<div id="logo">
-		<a href="index.html"><img src="../../assets/images/logo.png" alt=""></a>
+		<a [routerLink]="[ '/index']"><img src="../../assets/images/logo.png" alt=""></a>
 	</div>
 
 	<!-- Main Navigation -->
@@ -48,7 +48,7 @@
 	<div class="header-widget">
 		<span class="form-inline">
 			<select 
-				class="form-control" 
+				class="form-control lang" 
 				#selectedLang 
 				(change)="switchLang(selectedLang.value)">
 			  <option *ngFor="let language of translate.getLangs()" 

@@ -13,22 +13,22 @@
         
         <!-- Logo -->
         <div id="logo">
-            <a href="index.html"><img src="../../assets/images/logo.png" alt=""></a>
+            <a [routerLink]="[ '/index']"><img src="../../assets/images/logo.png" alt=""></a>
         </div>
     
         <!-- Main Navigation -->
         <nav id="navigation">
             <ul id="responsive">
     
-                <li><a href="#" class="current"  i18n>Home</a></li>
-    
-                <li><a routerLink="/client-dash"  i18n>Find Work</a></li>
-    
-                <li><a href="#"  i18n>For Employers</a></li>
-    
-                <li><a href="#"  i18n>Dashboard</a></li>
-    
-                <li><a href="#"  i18n>Pages</a></li>
+            <li><a href="#" class="current"  >{{'Home' | translate}}</a></li>
+
+			<li><a routerLink="/client-dash" > {{'Find work' | translate }}</a></li>
+
+			<li><a href="#"  >{{'For Employers' | translate }}</a></li>
+
+			<li><a href="#"  >{{'Browse projects' | translate }}</a></li>
+
+			<li><a href="#"  >{{'Browse Freelancers' | translate }}</a></li>
     
             </ul>
         </nav>
@@ -69,7 +69,7 @@
         <!--  User Notifications / End -->
     
         <div class="header-widget">
-            <a [routerLink]="'/index' " class="popup-with-zoom-anim log-in-button"><i class="icon-material-outline-power-settings-new"></i> <span  i18n>Logout</span></a>
+            <button (click)="logout()" class="popup-with-zoom-anim log-in-button"><i class="icon-material-outline-power-settings-new"></i> <span  i18n>Logout</span></button>
         </div>
     
        

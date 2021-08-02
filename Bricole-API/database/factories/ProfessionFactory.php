@@ -22,7 +22,7 @@ class ProfessionFactory extends Factory
     public function definition()
     {
         return [
-            'nom' => $this->faker->randomElement(["A","B","C","D","E"]),
+            'nom' => $this->faker->randomElement(["Plomberie","Peinture","Chauffage","Electricite","Menuiserie","Renovation","Electromenager","Montage"]),
         ];
     }
 }

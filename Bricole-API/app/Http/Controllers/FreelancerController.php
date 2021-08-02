@@ -25,4 +25,16 @@ class FreelancerController extends Controller
 
     }
 
+    public function freelancers()
+    {
+        $freelancers =  DB::table('freelancers')
+                        ->take(5)
+                        ->get();
+
+        //$projet = new ProjetClientResource($projets);
+
+        return response()->json($freelancers);
+
+    }
+
 }

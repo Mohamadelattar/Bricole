@@ -23,4 +23,19 @@ class ClientController extends Controller
         $client = Client::updateOrCreate($request->all());
         return response()->setStatusCode(201);
     }
+
+    public function clients()
+    {
+        $clients =  DB::table('clients')
+                        ->take(5)
+                        ->get();
+
+        //$projet = new ProjetClientResource($projets);
+
+        return response()->json($clients);
+
+    }
+
+
+
 }
